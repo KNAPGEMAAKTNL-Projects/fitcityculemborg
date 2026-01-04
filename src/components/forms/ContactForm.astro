@@ -1,0 +1,102 @@
+---
+interface Props {
+  accessKey: string;
+  redirectUrl: string;
+}
+
+const { accessKey, redirectUrl } = Astro.props;
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="space-y-6"
+>
+  <!-- Hidden fields -->
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="redirect" value={redirectUrl} />
+  <input type="hidden" name="subject" value="Nieuw bericht via FitCity website" />
+  <input type="hidden" name="from_name" value="FitCity Website" />
+
+  <!-- Honeypot spam prevention -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+  <!-- Name -->
+  <div>
+    <label for="name" class="block text-sm font-semibold mb-2">
+      Naam <span class="text-primary">*</span>
+    </label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+    />
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="block text-sm font-semibold mb-2">
+      E-mail <span class="text-primary">*</span>
+    </label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+    />
+  </div>
+
+  <!-- Phone -->
+  <div>
+    <label for="phone" class="block text-sm font-semibold mb-2">
+      Telefoon
+    </label>
+    <input
+      type="tel"
+      name="phone"
+      id="phone"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+    />
+  </div>
+
+  <!-- Subject -->
+  <div>
+    <label for="subject-type" class="block text-sm font-semibold mb-2">
+      Onderwerp <span class="text-primary">*</span>
+    </label>
+    <select
+      name="subject_type"
+      id="subject-type"
+      required
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors cursor-pointer"
+    >
+      <option value="">Selecteer een onderwerp...</option>
+      <option value="Proefles aanvragen">Proefles aanvragen</option>
+      <option value="Lidmaatschap informatie">Lidmaatschap informatie</option>
+      <option value="Algemene vraag">Algemene vraag</option>
+      <option value="Anders">Anders</option>
+    </select>
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm font-semibold mb-2">
+      Bericht <span class="text-primary">*</span>
+    </label>
+    <textarea
+      name="message"
+      id="message"
+      rows="5"
+      required
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none resize-none transition-colors"
+    ></textarea>
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" class="btn-primary w-full">
+    VERSTUUR BERICHT
+  </button>
+</form>

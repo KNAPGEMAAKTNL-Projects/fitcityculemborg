@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Algemene Voorwaarden"
+  description="Algemene Voorwaarden van FitCity Culemborg"
+  showStickyBar={false}
+>
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <SectionHeading
+        title="Algemene Voorwaarden"
+        subtitle="Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL')}"
+      />
+
+      <div class="prose prose-invert max-w-none space-y-6 text-text-muted">
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">1. Algemeen</h2>
+        <p>
+          Deze algemene voorwaarden zijn van toepassing op alle overeenkomsten tussen
+          FitCity Culemborg en haar leden.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">2. Lidmaatschap</h2>
+        <p>
+          Bij alle lidmaatschappen geldt een eenmalig inschrijfgeld van €17,00.
+          Het lidmaatschap gaat in op de datum van inschrijving.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">3. Opzegging</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Flex abonnementen:</strong> Opzeggen kan met 1 kalendermaand opzegtermijn.
+          </li>
+          <li>
+            <strong>Contract abonnementen:</strong> Worden automatisch omgezet naar maandelijks
+            na afloop van de contractperiode. Opzeggen kan daarna met 1 kalendermaand opzegtermijn.
+          </li>
+          <li>
+            <strong>Quick Deal:</strong> Verloopt automatisch na 3 maanden.
+          </li>
+        </ul>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">4. Betaling</h2>
+        <p>
+          De maandelijkse contributie wordt automatisch geïncasseerd via automatische incasso.
+          Bij het niet of niet tijdig betalen van de contributie, behoudt FitCity Culemborg
+          zich het recht voor om de toegang tot de sportschool te blokkeren.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">5. Huisregels</h2>
+        <p>
+          Leden zijn verplicht zich te houden aan de huisregels van FitCity Culemborg.
+          Deze zijn beschikbaar in de sportschool en op verzoek.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">6. Aansprakelijkheid</h2>
+        <p>
+          FitCity Culemborg is niet aansprakelijk voor schade aan eigendommen van leden
+          of bezoekers, noch voor persoonlijk letsel tenzij dit het gevolg is van opzet
+          of grove schuld van FitCity Culemborg.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">7. Ladies Only Zone</h2>
+        <p>
+          De Ladies Only zone (damesvloer beneden) is uitsluitend toegankelijk voor vrouwelijke leden.
+          Mannelijke leden hebben geen toegang tot deze zone.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">8. Contact</h2>
+        <p>
+          Voor vragen over deze algemene voorwaarden kunt u contact met ons opnemen:
+        </p>
+        <ul class="list-none space-y-2">
+          <li>E-mail: info@fitcityculemborg.nl</li>
+          <li>Telefoon: +31 6 4687 2274</li>
+          <li>Adres: Houtweg 8, 4104 AB Culemborg</li>
+        </ul>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+import { getStatusText } from '@utils/openStatus';
+
+const { text, isOpen } = getStatusText();
+---
+
+<span
+  id="open-status-badge"
+  class:list={[
+    'inline-flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase rounded-none',
+    isOpen ? 'bg-success/20 text-success' : 'bg-text-muted/20 text-text-muted'
+  ]}
+>
+  <span
+    class:list={[
+      'w-2 h-2 rounded-full',
+      isOpen ? 'bg-success animate-pulse' : 'bg-text-muted'
+    ]}
+  ></span>
+  <span id="status-text">{text}</span>
+</span>
+
+<script>
+  // Update status on client side for accurate time
+  import { getStatusText } from '@utils/openStatus';
+
+  function updateStatus() {
+    const badge = document.getElementById('open-status-badge');
+    const statusText = document.getElementById('status-text');
+
+    if (badge && statusText) {
+      const { text, isOpen } = getStatusText();
+      statusText.textContent = text;
+
+      // Update classes
+      if (isOpen) {
+        badge.classList.remove('bg-text-muted/20', 'text-text-muted');
+        badge.classList.add('bg-success/20', 'text-success');
+        const dot = badge.querySelector('span:first-of-type');
+        if (dot) {
+          dot.classList.remove('bg-text-muted');
+          dot.classList.add('bg-success', 'animate-pulse');
+        }
+      } else {
+        badge.classList.remove('bg-success/20', 'text-success');
+        badge.classList.add('bg-text-muted/20', 'text-text-muted');
+        const dot = badge.querySelector('span:first-of-type');
+        if (dot) {
+          dot.classList.remove('bg-success', 'animate-pulse');
+          dot.classList.add('bg-text-muted');
+        }
+      }
+    }
+  }
+
+  // Update immediately on page load
+  updateStatus();
+
+  // Update every minute
+  setInterval(updateStatus, 60000);
+</script>

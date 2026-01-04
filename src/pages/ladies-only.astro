@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroVideo from '@components/sections/HeroVideo.astro';
+import PricingGrid from '@components/sections/PricingGrid.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Container from '@components/ui/Container.astro';
+import USPCard from '@components/sections/USPCard.astro';
+
+import { pricingData } from '@data/pricing';
+---
+
+<BaseLayout
+  title="Ladies Only"
+  description="FitCity Ladies Only - Eigen damesvloer met privacy. Fitness speciaal voor vrouwen vanaf €20,50/maand."
+  theme="ladies"
+>
+  <HeroVideo
+    headline="LADIES ONLY"
+    subheadline="Jouw eigen ruimte om te trainen"
+    ctaText="WORD NU LID"
+    ctaLink="/signup"
+    secondaryCtaText="BEKIJK PRIJZEN"
+    secondaryCtaLink="#pricing"
+  />
+
+  <section class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        title="Over Ladies Only"
+        subtitle="Een aparte damesvloer beneden waar alleen vrouwen mogen trainen"
+      />
+      <div class="max-w-3xl mx-auto space-y-6 text-center">
+        <p class="text-text-muted leading-relaxed">
+          De Ladies Only zone bij FitCity biedt vrouwen een comfortabele en privé omgeving
+          om te trainen. Onze damesvloer bevindt zich beneden en is volledig uitgerust met
+          alle apparatuur die je nodig hebt.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Train in een veilige en ondersteunende omgeving, met toegang tot zowel de Ladies Only
+          zone als de algemene fitnessruimte. Geniet van dezelfde industriële vibe en raw energy,
+          maar met de extra privacy die je verdient.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-16 md:py-24 bg-bg-main">
+    <Container>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <USPCard
+          icon="users"
+          title="Eigen Ruimte"
+          description="Aparte damesvloer beneden, alleen voor vrouwen"
+        />
+        <USPCard
+          icon="dumbbell"
+          title="Volledige Uitrusting"
+          description="Alle apparaten en gewichten die je nodig hebt"
+        />
+        <USPCard
+          icon="check"
+          title="Privacy"
+          description="Train in een comfortabele en veilige omgeving"
+        />
+      </div>
+    </Container>
+  </section>
+
+  <section id="pricing" class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        title="Ladies Only Prijzen"
+        subtitle="Speciale prijzen voor de damesvloer"
+      />
+    </Container>
+    <PricingGrid
+      cards={pricingData.ladies}
+      highlightedId="ladies-jaar"
+    />
+  </section>
+</BaseLayout>

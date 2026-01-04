@@ -1,0 +1,159 @@
+---
+interface Props {
+  type?: 'homepage' | 'page';
+}
+
+const { type = 'page' } = Astro.props;
+
+// Business information
+const businessInfo = {
+  name: 'FitCity Culemborg',
+  description: 'De meest betaalbare sportschool van Culemborg met industriële vibe. Ladies Only vanaf €20,50, Fitness vanaf €24,50, Kickboksen vanaf €19,95 per maand.',
+  address: {
+    street: 'Houtweg 8',
+    city: 'Culemborg',
+    postalCode: '4104 AB',
+    country: 'NL'
+  },
+  phone: '+31646872274',
+  email: 'info@fitcityculemborg.nl',
+  url: 'https://fitcityculemborg.nl',
+  coordinates: {
+    latitude: 51.9579,
+    longitude: 5.2336
+  },
+  rating: {
+    value: 4.6,
+    count: 27
+  },
+  priceRange: '€€',
+  openingHours: [
+    'Mo-Fr 08:30-22:00',
+    'Sa 09:00-16:00',
+    'Su 09:30-16:00'
+  ]
+};
+
+// LocalBusiness Schema
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsActivityLocation',
+  '@id': `${businessInfo.url}#business`,
+  name: businessInfo.name,
+  description: businessInfo.description,
+  url: businessInfo.url,
+  telephone: businessInfo.phone,
+  email: businessInfo.email,
+  priceRange: businessInfo.priceRange,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: businessInfo.address.street,
+    addressLocality: businessInfo.address.city,
+    postalCode: businessInfo.address.postalCode,
+    addressCountry: businessInfo.address.country
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: businessInfo.coordinates.latitude,
+    longitude: businessInfo.coordinates.longitude
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:30',
+      closes: '22:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '16:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Sunday',
+      opens: '09:30',
+      closes: '16:00'
+    }
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: businessInfo.rating.value,
+    reviewCount: businessInfo.rating.count,
+    bestRating: 5,
+    worstRating: 1
+  },
+  amenityFeature: [
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Fitness Equipment',
+      value: true
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Ladies Only Section',
+      value: true
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Kickboxing',
+      value: true
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Parking',
+      value: true
+    }
+  ],
+  sameAs: [
+    'https://www.facebook.com/p/Fitcity-Culemborg-100063646716139/',
+    'https://www.instagram.com/fitcityculemborg',
+    'https://www.instagram.com/fitcity_ladiesonly'
+  ]
+};
+
+// Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${businessInfo.url}#organization`,
+  name: businessInfo.name,
+  url: businessInfo.url,
+  logo: `${businessInfo.url}/images/fitcity-logov2.png`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: businessInfo.phone,
+    contactType: 'customer service',
+    availableLanguage: 'Dutch',
+    areaServed: 'NL'
+  },
+  sameAs: [
+    'https://www.facebook.com/p/Fitcity-Culemborg-100063646716139/',
+    'https://www.instagram.com/fitcityculemborg',
+    'https://www.instagram.com/fitcity_ladiesonly'
+  ]
+};
+
+// WebSite Schema (for homepage only)
+const websiteSchema = type === 'homepage' ? {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${businessInfo.url}#website`,
+  url: businessInfo.url,
+  name: businessInfo.name,
+  description: businessInfo.description,
+  publisher: {
+    '@id': `${businessInfo.url}#organization`
+  }
+} : null;
+
+// Combine schemas
+const schemas = [
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema
+].filter(Boolean);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} />

@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Container from '@components/ui/Container.astro';
+import ScheduleTable from '@components/sections/ScheduleTable.astro';
+import PricingCard from '@components/sections/PricingCard.astro';
+import PhotoGallery from '@components/sections/PhotoGallery.astro';
+
+import { kickboxingSchedule, pricingData } from '@data/pricing';
+
+const ultimateFit = pricingData.main.find(p => p.id === 'ultimate-fit');
+
+const kickboxingImages = [
+  '/images/kickboxen-1.jpeg',
+  '/images/kickboxen-2.jpeg',
+  '/images/kickboxen-3.jpeg',
+  '/images/kickboxen-4.jpeg',
+  '/images/kickboxen-5.jpeg',
+  '/images/kickboxen-6.jpeg',
+];
+---
+
+<BaseLayout
+  title="Kickboxing"
+  description="Kickboxing bij FitCity Culemborg. Lessen op dinsdag, donderdag en zondag. Vanaf €19,95/maand."
+>
+  <!-- Hero Section -->
+  <section class="relative py-24 md:py-32 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/kickboxen-5.jpeg"
+        alt="Kickboxing training bij FitCity"
+        class="w-full h-full object-cover kickboxing-hero-bg"
+      />
+      <!-- Dark overlay for text readability -->
+      <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    <!-- Content -->
+    <Container>
+      <div class="relative z-10 text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-display mb-6 text-primary">
+          KICKBOXING
+        </h1>
+        <p class="text-xl md:text-2xl text-text-main mb-8">
+          Train je kracht, conditie en techniek met professionele kickboxing lessen
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <style>
+    .kickboxing-hero-bg {
+      object-position: center 70%;
+    }
+
+    @media (min-width: 768px) {
+      .kickboxing-hero-bg {
+        object-position: center 85%;
+      }
+    }
+  </style>
+
+  <!-- Schedule Section -->
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <SectionHeading
+        title="Lesrooster"
+        subtitle="Wekelijkse kickboxing lessen voor alle niveaus"
+      />
+      <ScheduleTable schedule={kickboxingSchedule} />
+    </Container>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 md:py-24 bg-bg-secondary">
+    <Container size="narrow">
+      <SectionHeading
+        title="Over onze lessen"
+        subtitle="Voor beginners en gevorderden"
+      />
+      <div class="max-w-2xl mx-auto space-y-6 text-center">
+        <p class="text-text-muted leading-relaxed">
+          Onze kickboxing lessen zijn geschikt voor iedereen, van complete beginners
+          tot ervaren vechters. Onze instructeurs begeleiden je stap voor stap
+          in de basis technieken en helpen je groeien in je vaardigheden.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Tijdens de lessen werk je aan conditie, kracht, coördinatie en techniek.
+          Het is een complete workout die niet alleen je lichaam, maar ook je
+          zelfvertrouwen versterkt.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Photo Gallery -->
+  <PhotoGallery images={kickboxingImages} title="IMPRESSIE" />
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        title="Kickboxing Prijzen"
+        subtitle="Kies het abonnement dat bij jou past"
+      />
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {pricingData.kickboxing.map((pricing) => (
+          <PricingCard
+            name={pricing.name}
+            price={pricing.price}
+            term={pricing.term}
+            features={pricing.features}
+          />
+        ))}
+        {ultimateFit && (
+          <PricingCard
+            name={ultimateFit.name}
+            price={ultimateFit.price}
+            term={ultimateFit.term}
+            features={ultimateFit.features}
+            isHighlighted={true}
+          />
+        )}
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

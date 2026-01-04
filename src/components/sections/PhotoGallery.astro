@@ -1,0 +1,27 @@
+---
+interface Props {
+  images: string[];
+  title?: string;
+}
+
+const { images, title = 'Foto\'s' } = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <h2 class="font-display text-3xl md:text-5xl text-center mb-12">{title}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {images.map((image, index) => (
+        <div class="relative overflow-hidden border-2 border-white/10 hover:border-primary transition-all duration-300 group">
+          <img
+            src={image}
+            alt={`Kickboxing training foto ${index + 1}`}
+            class="w-full h-64 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

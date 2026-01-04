@@ -1,0 +1,52 @@
+---
+import USPCard from './USPCard.astro';
+import Container from '@components/ui/Container.astro';
+import type { USPData } from '@data/usps';
+
+interface Props {
+  usps: USPData[];
+}
+
+const { usps } = Astro.props;
+---
+
+<Container>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {usps.map((usp) => (
+      <USPCard
+        icon={usp.icon}
+        title={usp.title}
+        description={usp.description}
+      />
+    ))}
+  </div>
+
+  <!-- Equipment Brands -->
+  <div class="mt-16 pt-12 border-t border-white/10">
+    <p class="text-center text-text-muted text-sm mb-8 uppercase tracking-wider">
+      Premium Apparatuur
+    </p>
+    <div class="grid grid-cols-3 gap-8 md:gap-12 items-center">
+      <!-- Nautilus -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Nautilus</span>
+        </div>
+      </div>
+
+      <!-- Technogym -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Technogym</span>
+        </div>
+      </div>
+
+      <!-- Sports Art -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Sports Art</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>

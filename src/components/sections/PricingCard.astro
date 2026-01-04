@@ -1,0 +1,59 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  term: string;
+  features: string[];
+  isHighlighted?: boolean;
+}
+
+const {
+  name,
+  price,
+  term,
+  features,
+  isHighlighted = false
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'card-industrial p-6 md:p-8 flex flex-col h-full',
+    isHighlighted && 'border-2 border-primary'
+  ]}
+>
+  {isHighlighted && (
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary text-black text-xs font-bold uppercase mb-4 self-start">
+      ⭐ AANBEVOLEN
+    </div>
+  )}
+
+  <h3 class="font-display text-xl md:text-2xl mb-2">
+    {name}
+  </h3>
+
+  <div class="mb-6">
+    <div class="flex items-baseline gap-2">
+      <span class="text-5xl md:text-6xl font-display text-primary">
+        €{price}
+      </span>
+      <span class="text-text-muted text-lg">/maand</span>
+    </div>
+    <p class="text-text-muted text-sm mt-1">{term}</p>
+  </div>
+
+  <ul class="space-y-3 mb-8 flex-grow">
+    {features.map((feature) => (
+      <li class="flex items-start gap-3">
+        <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-sm text-text-main">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a href="/signup" class="btn-primary w-full text-center">
+    WORD NU LID
+  </a>
+</div>

@@ -1,0 +1,28 @@
+---
+import FAQItem from './FAQItem.astro';
+import Container from '@components/ui/Container.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import type { FAQItem as FAQItemType } from '@data/faq';
+
+interface Props {
+  items: FAQItemType[];
+}
+
+const { items } = Astro.props;
+---
+
+<Container size="narrow">
+  <SectionHeading
+    title="Veelgestelde Vragen"
+    subtitle="Vind snel antwoord op je vragen"
+  />
+
+  <div class="max-w-3xl mx-auto">
+    {items.map((item) => (
+      <FAQItem
+        question={item.question}
+        answer={item.answer}
+      />
+    ))}
+  </div>
+</Container>

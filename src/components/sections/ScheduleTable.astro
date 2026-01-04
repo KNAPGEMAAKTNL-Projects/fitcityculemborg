@@ -1,0 +1,28 @@
+---
+import type { ScheduleItem } from '@data/pricing';
+
+interface Props {
+  schedule: ScheduleItem[];
+}
+
+const { schedule } = Astro.props;
+---
+
+<div class="overflow-x-auto">
+  <table class="w-full card-industrial">
+    <thead class="bg-primary text-black">
+      <tr>
+        <th class="px-6 py-4 text-left font-display text-sm uppercase">Dag</th>
+        <th class="px-6 py-4 text-left font-display text-sm uppercase">Tijd</th>
+      </tr>
+    </thead>
+    <tbody>
+      {schedule.map((item, index) => (
+        <tr class={index % 2 === 0 ? 'bg-bg-secondary' : 'bg-bg-main'}>
+          <td class="px-6 py-4 font-semibold">{item.day}</td>
+          <td class="px-6 py-4 text-text-muted">{item.time}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

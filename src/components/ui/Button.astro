@@ -1,0 +1,29 @@
+---
+interface Props {
+  variant?: 'primary' | 'ghost';
+  href?: string;
+  type?: 'button' | 'submit';
+  fullWidth?: boolean;
+}
+
+const {
+  variant = 'primary',
+  href,
+  type = 'button',
+  fullWidth = false
+} = Astro.props;
+
+const baseClass = variant === 'primary' ? 'btn-primary' : 'btn-ghost';
+const widthClass = fullWidth ? 'w-full' : '';
+const classes = `${baseClass} ${widthClass} inline-block text-center`;
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}

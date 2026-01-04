@@ -1,0 +1,55 @@
+---
+import { openingHours } from '@data/hours';
+---
+
+<footer class="bg-bg-secondary border-t border-white/10 py-12">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- About -->
+      <div>
+        <h3 class="font-display text-xl mb-4">FITCITY CULEMBORG</h3>
+        <p class="text-text-muted text-sm">
+          De meest betaalbare sportschool van Culemborg waar je écht wilt trainen.
+        </p>
+      </div>
+
+      <!-- Opening Hours -->
+      <div>
+        <h3 class="font-display text-lg mb-4">OPENINGSTIJDEN</h3>
+        <ul class="space-y-2 text-sm text-text-muted">
+          {openingHours.map((item) => (
+            <li>
+              <span class="font-semibold text-text-main">{item.day}</span>
+              <br />
+              {item.hours}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-display text-lg mb-4">LINKS</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/#pricing" class="text-text-muted hover:text-primary transition-colors">Prijzen</a></li>
+          <li><a href="/ladies-only" class="text-text-muted hover:text-primary transition-colors">Ladies Only</a></li>
+          <li><a href="/kickboxing" class="text-text-muted hover:text-primary transition-colors">Kickboxing</a></li>
+          <li><a href="/contact" class="text-text-muted hover:text-primary transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="font-display text-lg mb-4">JURIDISCH</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/privacy" class="text-text-muted hover:text-primary transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-text-muted hover:text-primary transition-colors">Algemene Voorwaarden</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-text-muted">
+      <p>&copy; {new Date().getFullYear()} FitCity Culemborg. Alle rechten voorbehouden.</p>
+    </div>
+  </div>
+</footer>

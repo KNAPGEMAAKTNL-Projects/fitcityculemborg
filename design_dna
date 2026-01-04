@@ -1,0 +1,57 @@
+{
+  "brand_identity": {
+    "project_name": "FitCity Culemborg",
+    "vibe_keywords": [
+      "Industrial",
+      "Unapologetic",
+      "High-Voltage",
+      "Raw",
+      "Accessible"
+    ]
+  },
+  "color_palette": {
+    "background_main": "#121212",
+    "background_secondary": "#1E1E1E",
+    "primary_brand": "#FFE303",
+    "primary_hover": "#D4BD00",
+    "ladies_zone_accent": "#FF2E93",
+    "ladies_zone_bg": "#1A0F16",
+    "text_main": "#FFFFFF",
+    "text_muted": "#A3A3A3",
+    "alert_success": "#00E676"
+  },
+  "typography": {
+    "headers": {
+      "font_family": "Oswald, sans-serif",
+      "weights": [700],
+      "transform": "uppercase",
+      "usage": "Use for all pricing figures and section titles. Letter-spacing -1px."
+    },
+    "body": {
+      "font_family": "Inter, sans-serif",
+      "weights": [400, 600],
+      "usage": "Clean, legible sans-serif for rules and descriptions."
+    }
+  },
+  "ui_tokens": {
+    "border_radius": "0px",
+    "shadows": {
+      "card_default": "none",
+      "card_hover": "6px 6px 0px 0px #FFE303",
+      "button_hard": "4px 4px 0px 0px #000000"
+    },
+    "glassmorphism": {
+      "enabled": true,
+      "usage": "Only for the mobile sticky bottom bar (backdrop-filter: blur(12px))"
+    },
+    "buttons": {
+      "primary": "Solid #FFE303 background, Black Text, 0px Radius, Uppercase",
+      "ghost": "Border 2px #FFFFFF, White Text, Hover: Fill White + Black Text"
+    }
+  },
+  "layout_strategy": {
+    "mobile_nav": "Sticky Bottom Bar (Join Now)",
+    "pricing_grid": "Horizontal Scroll on Mobile, 3-Column Grid on Desktop",
+    "hero_style": "Full-screen vertical video loop with heavy typographic overlay"
+  }
+}

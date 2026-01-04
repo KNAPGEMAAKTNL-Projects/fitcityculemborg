@@ -1,0 +1,46 @@
+---
+import Container from '@components/ui/Container.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+---
+
+<section class="py-16 md:py-24 bg-bg-secondary">
+  <Container>
+    <SectionHeading
+      title="Premium Apparatuur"
+      subtitle="Wij werken met de beste merken in de fitness industrie"
+    />
+
+    <div class="grid grid-cols-3 md:grid-cols-3 gap-8 md:gap-12 mt-12 items-center">
+      <!-- Nautilus -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/10 backdrop-blur-sm border-2 border-white/20 p-8 flex items-center justify-center h-32 transition-all duration-300 hover:border-primary hover:shadow-card-hover">
+          <span class="font-display text-2xl md:text-3xl text-white/90 uppercase">Nautilus</span>
+        </div>
+      </div>
+
+      <!-- Technogym -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/10 backdrop-blur-sm border-2 border-white/20 p-8 flex items-center justify-center h-32 transition-all duration-300 hover:border-primary hover:shadow-card-hover">
+          <span class="font-display text-2xl md:text-3xl text-white/90 uppercase">Technogym</span>
+        </div>
+      </div>
+
+      <!-- Sports Art -->
+      <div class="brand-logo-container">
+        <div class="brand-logo bg-white/10 backdrop-blur-sm border-2 border-white/20 p-8 flex items-center justify-center h-32 transition-all duration-300 hover:border-primary hover:shadow-card-hover">
+          <span class="font-display text-2xl md:text-3xl text-white/90 uppercase">Sports Art</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-text-muted mt-8 text-sm md:text-base">
+      Hoogwaardige apparatuur voor optimale trainingsresultaten
+    </p>
+  </Container>
+</section>
+
+<style>
+  .shadow-card-hover {
+    box-shadow: 6px 6px 0px 0px var(--color-primary);
+  }
+</style>

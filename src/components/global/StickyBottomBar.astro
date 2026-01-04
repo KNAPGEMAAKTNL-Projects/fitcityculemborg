@@ -1,0 +1,62 @@
+---
+interface Props {
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  ctaText = 'WORD NU LID',
+  ctaLink = '/signup'
+} = Astro.props;
+---
+
+<div
+  id="sticky-bottom-bar"
+  class="fixed bottom-0 left-0 right-0 z-50 md:hidden glass-bar border-t border-white/10 pb-safe transition-transform duration-300"
+  style="transform: translateY(100%);"
+>
+  <div class="px-4 py-3">
+    <a
+      href={ctaLink}
+      class="btn-primary w-full text-center block"
+    >
+      {ctaText}
+    </a>
+  </div>
+</div>
+
+<style>
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+</style>
+
+<script>
+  // Only show sticky bar when hero CTA is out of view
+  document.addEventListener('DOMContentLoaded', () => {
+    const stickyBar = document.getElementById('sticky-bottom-bar');
+    const heroSection = document.getElementById('hero-section');
+
+    if (!stickyBar || !heroSection) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Hero is in view - hide sticky bar
+            stickyBar.style.transform = 'translateY(100%)';
+          } else {
+            // Hero is out of view - show sticky bar
+            stickyBar.style.transform = 'translateY(0)';
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px'
+      }
+    );
+
+    observer.observe(heroSection);
+  });
+</script>

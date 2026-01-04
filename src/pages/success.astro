@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
+---
+
+<BaseLayout
+  title="Bedankt!"
+  description="Je bericht is verzonden."
+  showStickyBar={false}
+>
+  <section class="min-h-[70vh] flex items-center justify-center py-16">
+    <Container size="narrow">
+      <div class="text-center px-4">
+        <!-- Success Icon -->
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-success/20 text-success rounded-full mb-6">
+          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+
+        <h1 class="font-display text-4xl md:text-5xl mb-4">
+          BEDANKT!
+        </h1>
+
+        <p class="text-text-muted text-lg mb-4">
+          Je bericht is succesvol verzonden.
+        </p>
+
+        <p class="text-text-muted mb-8">
+          We nemen zo snel mogelijk contact met je op.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/" class="btn-primary">
+            TERUG NAAR HOME
+          </a>
+          <a href="/#pricing" class="btn-ghost">
+            BEKIJK PRIJZEN
+          </a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/10">
+          <p class="text-text-muted text-sm mb-4">
+            Of neem direct contact met ons op:
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center text-sm">
+            <a href="tel:+31646872274" class="text-primary hover:text-primary-hover transition-colors">
+              📞 +31 6 4687 2274
+            </a>
+            <a href="https://wa.me/31646872274" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-hover transition-colors">
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

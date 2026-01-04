@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroVideo from '@components/sections/HeroVideo.astro';
+import PricingGrid from '@components/sections/PricingGrid.astro';
+import VibeSection from '@components/sections/VibeSection.astro';
+import USPGrid from '@components/sections/USPGrid.astro';
+import FAQ from '@components/sections/FAQ.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Container from '@components/ui/Container.astro';
+import FAQSchema from '@components/seo/FAQSchema.astro';
+
+import { pricingData } from '@data/pricing';
+import { uspData } from '@data/usps';
+import { faqData } from '@data/faq';
+---
+
+<BaseLayout
+  title="Home"
+  description="FitCity Culemborg - De meest betaalbare sportschool in Culemborg. Ladies Only vanaf €20,50/maand. Industriële vibe, geen gedoe."
+  schemaType="homepage"
+>
+  <HeroVideo
+    videoSrc="/videos/fitcity-hero.mp4"
+    headline="ELKE DAG FITTER"
+    subheadline="De meest betaalbare sportschool van Culemborg"
+    showGoogleReviews={true}
+    googleRating={4.6}
+    googleReviewCount={27}
+    ctaText="WORD NU LID"
+    ctaLink="/signup"
+    secondaryCtaText="BEKIJK PRIJZEN"
+    secondaryCtaLink="#pricing"
+  />
+
+  <section id="pricing" class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        title="Prijzen"
+        subtitle="Transparante prijzen, geen verborgen kosten. Alle abonnementen incl. €17,00 inschrijfgeld."
+      />
+    </Container>
+    <PricingGrid
+      cards={pricingData.main}
+      highlightedId="smart-deal"
+    />
+  </section>
+
+  <VibeSection />
+
+  <section id="usps" class="py-16 md:py-24 bg-bg-main">
+    <Container>
+      <SectionHeading
+        title="Waarom FitCity?"
+        subtitle="De beste keuze voor jouw fitness journey"
+      />
+    </Container>
+    <USPGrid usps={uspData} />
+  </section>
+
+  <section id="faq" class="py-16 md:py-24">
+    <FAQ items={faqData} />
+  </section>
+
+  <!-- FAQ Schema for SEO -->
+  <FAQSchema />
+</BaseLayout>

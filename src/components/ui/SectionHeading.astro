@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { title, subtitle, align = 'center' } = Astro.props;
+
+const alignClass = align === 'center' ? 'text-center' : 'text-left';
+---
+
+<div class={`mb-12 ${alignClass}`}>
+  <h2 class="text-4xl md:text-5xl font-display mb-4 tracking-tight">
+    {title}
+  </h2>
+  {subtitle && (
+    <p class="text-text-muted text-lg max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+  )}
+</div>

@@ -1,0 +1,44 @@
+---
+import PricingCard from './PricingCard.astro';
+import Container from '@components/ui/Container.astro';
+import type { PricingCardData } from '@data/pricing';
+
+interface Props {
+  cards: PricingCardData[];
+  highlightedId?: string;
+}
+
+const { cards, highlightedId } = Astro.props;
+---
+
+<Container size="wide">
+  <!-- Mobile: Horizontal Scroll -->
+  <div class="md:hidden overflow-x-auto pb-4 -mx-4 px-4">
+    <div class="flex gap-4 snap-x snap-mandatory">
+      {cards.map((card) => (
+        <div class="min-w-[280px] snap-center">
+          <PricingCard
+            name={card.name}
+            price={card.price}
+            term={card.term}
+            features={card.features}
+            isHighlighted={card.id === highlightedId}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Desktop: Grid -->
+  <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {cards.map((card) => (
+      <PricingCard
+        name={card.name}
+        price={card.price}
+        term={card.term}
+        features={card.features}
+        isHighlighted={card.id === highlightedId}
+      />
+    ))}
+  </div>
+</Container>

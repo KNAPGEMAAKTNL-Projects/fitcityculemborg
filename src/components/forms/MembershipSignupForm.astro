@@ -1,0 +1,575 @@
+---
+import { pricingData } from '@data/pricing';
+---
+
+<div class="membership-signup-form">
+  <!-- Progress Indicator -->
+  <div class="flex items-center justify-center gap-2 mb-12">
+    <div class="flex items-center gap-2">
+      <div class="step-indicator active" data-step="1">
+        <span>1</span>
+      </div>
+      <div class="h-0.5 w-12 bg-text-muted/30 step-line" data-line="1"></div>
+      <div class="step-indicator" data-step="2">
+        <span>2</span>
+      </div>
+      <div class="h-0.5 w-12 bg-text-muted/30 step-line" data-line="2"></div>
+      <div class="step-indicator" data-step="3">
+        <span>3</span>
+      </div>
+    </div>
+  </div>
+
+  <form id="membership-form" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Hidden Web3Forms fields -->
+    <input type="hidden" name="access_key" value="7b91d16e-72f3-4c0e-a8cd-b6b9231807da" />
+    <input type="hidden" name="redirect" value="/success" />
+    <input type="hidden" name="subject" value="Nieuwe lidmaatschap aanmelding - FitCity Culemborg" />
+    <input type="hidden" name="from_name" value="FitCity Website" />
+
+    <!-- Selected membership (will be populated by JS) -->
+    <input type="hidden" name="membership_type" id="selected-membership" />
+    <input type="hidden" name="membership_price" id="selected-price" />
+
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+    <!-- Step 1: Membership Selection -->
+    <div class="form-step active" data-step="1">
+      <h2 class="font-display text-2xl md:text-3xl mb-6 text-center">Kies je abonnement</h2>
+
+      <!-- 12-Month Memberships -->
+      <div class="mb-8">
+        <h3 class="font-display text-xl mb-4 text-primary">12-Maanden Abonnementen</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {pricingData.main.map((membership) => (
+            <button
+              type="button"
+              class="membership-card"
+              data-id={membership.id}
+              data-name={membership.name}
+              data-price={membership.price}
+            >
+              <div class="font-display text-xl mb-2">{membership.name}</div>
+              <div class="text-3xl font-display text-primary mb-2">€{membership.price}<span class="text-sm text-text-muted">/mnd</span></div>
+              <div class="text-sm text-text-muted mb-4">{membership.term}</div>
+              <ul class="text-left text-sm space-y-1">
+                {membership.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Ladies Only -->
+      <div class="mb-8">
+        <h3 class="font-display text-xl mb-4 text-primary">Ladies Only</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {pricingData.ladies.map((membership) => (
+            <button
+              type="button"
+              class="membership-card"
+              data-id={membership.id}
+              data-name={membership.name}
+              data-price={membership.price}
+            >
+              <div class="font-display text-xl mb-2">{membership.name}</div>
+              <div class="text-3xl font-display text-primary mb-2">€{membership.price}<span class="text-sm text-text-muted">/mnd</span></div>
+              <div class="text-sm text-text-muted mb-4">{membership.term}</div>
+              <ul class="text-left text-sm space-y-1">
+                {membership.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Kickboxing -->
+      <div class="mb-8">
+        <h3 class="font-display text-xl mb-4 text-primary">Kickboksen</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {pricingData.kickboxing.map((membership) => (
+            <button
+              type="button"
+              class="membership-card"
+              data-id={membership.id}
+              data-name={membership.name}
+              data-price={membership.price}
+            >
+              <div class="font-display text-xl mb-2">{membership.name}</div>
+              <div class="text-3xl font-display text-primary mb-2">€{membership.price}<span class="text-sm text-text-muted">/mnd</span></div>
+              <div class="text-sm text-text-muted mb-4">{membership.term}</div>
+              <ul class="text-left text-sm space-y-1">
+                {membership.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sticky button container for mobile -->
+      <div class="form-step-actions">
+        <button type="button" class="btn-primary w-full" id="step1-next" disabled>
+          VOLGENDE STAP
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Personal Details -->
+    <div class="form-step" data-step="2">
+      <h2 class="font-display text-2xl md:text-3xl mb-6 text-center">Persoonlijke gegevens</h2>
+
+      <div class="space-y-6">
+        <div>
+          <label for="full_name" class="block text-sm font-semibold mb-2">
+            Volledige naam <span class="text-primary">*</span>
+          </label>
+          <input
+            type="text"
+            name="full_name"
+            id="full_name"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-2">
+            E-mail <span class="text-primary">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-2">
+            Telefoon <span class="text-primary">*</span>
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="birthdate" class="block text-sm font-semibold mb-2">
+            Geboortedatum <span class="text-primary">*</span>
+          </label>
+          <input
+            type="date"
+            name="birthdate"
+            id="birthdate"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="md:col-span-2">
+            <label for="address_street" class="block text-sm font-semibold mb-2">
+              Straat <span class="text-primary">*</span>
+            </label>
+            <input
+              type="text"
+              name="address_street"
+              id="address_street"
+              required
+              class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+            />
+          </div>
+          <div>
+            <label for="address_number" class="block text-sm font-semibold mb-2">
+              Huisnummer <span class="text-primary">*</span>
+            </label>
+            <input
+              type="text"
+              name="address_number"
+              id="address_number"
+              required
+              class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="address_postal" class="block text-sm font-semibold mb-2">
+              Postcode <span class="text-primary">*</span>
+            </label>
+            <input
+              type="text"
+              name="address_postal"
+              id="address_postal"
+              required
+              placeholder="1234 AB"
+              class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+            />
+          </div>
+          <div>
+            <label for="address_city" class="block text-sm font-semibold mb-2">
+              Plaats <span class="text-primary">*</span>
+            </label>
+            <input
+              type="text"
+              name="address_city"
+              id="address_city"
+              required
+              class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="start_date" class="block text-sm font-semibold mb-2">
+            Gewenste startdatum <span class="text-primary">*</span>
+          </label>
+          <input
+            type="date"
+            name="start_date"
+            id="start_date"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+      </div>
+
+      <!-- Sticky button container for mobile -->
+      <div class="form-step-actions">
+        <button type="button" class="btn-ghost flex-1" id="step2-back">
+          TERUG
+        </button>
+        <button type="button" class="btn-primary flex-1" id="step2-next">
+          VOLGENDE STAP
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Payment & Legal -->
+    <div class="form-step" data-step="3">
+      <h2 class="font-display text-2xl md:text-3xl mb-6 text-center">Betaalgegevens & akkoord</h2>
+
+      <div class="space-y-6">
+        <div>
+          <label for="iban" class="block text-sm font-semibold mb-2">
+            IBAN <span class="text-primary">*</span>
+          </label>
+          <input
+            type="text"
+            name="iban"
+            id="iban"
+            required
+            placeholder="NL00 BANK 0000 0000 00"
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="account_holder" class="block text-sm font-semibold mb-2">
+            Naam rekeninghouder <span class="text-primary">*</span>
+          </label>
+          <input
+            type="text"
+            name="account_holder"
+            id="account_holder"
+            required
+            class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+          />
+        </div>
+
+        <!-- SEPA Mandaat Text -->
+        <div class="bg-bg-secondary border border-white/10 p-6 text-sm text-text-muted">
+          <h3 class="font-semibold text-white mb-4">SEPA Incasso Machtiging</h3>
+          <p class="mb-4">
+            Door ondertekening van dit formulier geeft u toestemming aan FitCity Culemborg om doorlopende automatische incasso-opdrachten
+            te sturen naar uw bank om een bedrag van uw rekening af te schrijven, en aan uw bank om doorlopend een bedrag van uw rekening
+            af te schrijven overeenkomstig de opdracht van FitCity Culemborg.
+          </p>
+          <p class="mb-4">
+            <strong>Incassant:</strong> FitCity Culemborg<br />
+            <strong>Adres:</strong> Houtweg 8, 4104 AB Culemborg
+          </p>
+          <p class="text-xs">
+            Als u het niet eens bent met deze afschrijving, kunt u deze laten terugboeken. Neem daarvoor binnen acht weken na afschrijving
+            contact op met uw bank. Vraag uw bank naar de voorwaarden.
+          </p>
+        </div>
+
+        <!-- Consent Checkboxes -->
+        <div class="space-y-4">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              name="sepa_consent"
+              id="sepa_consent"
+              required
+              class="mt-1 w-5 h-5 border-2 border-text-muted/30 bg-bg-main focus:ring-primary"
+            />
+            <span class="text-sm">
+              Ik ga akkoord met het SEPA incasso mandaat <span class="text-primary">*</span>
+            </span>
+          </label>
+
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              name="privacy_consent"
+              id="privacy_consent"
+              required
+              class="mt-1 w-5 h-5 border-2 border-text-muted/30 bg-bg-main focus:ring-primary"
+            />
+            <span class="text-sm">
+              Ik heb de <a href="/privacy" target="_blank" class="text-primary hover:underline">privacyverklaring</a> gelezen en ga hiermee akkoord <span class="text-primary">*</span>
+            </span>
+          </label>
+
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              name="terms_consent"
+              id="terms_consent"
+              required
+              class="mt-1 w-5 h-5 border-2 border-text-muted/30 bg-bg-main focus:ring-primary"
+            />
+            <span class="text-sm">
+              Ik ga akkoord met de <a href="/terms" target="_blank" class="text-primary hover:underline">algemene voorwaarden</a> <span class="text-primary">*</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Sticky button container for mobile -->
+      <div class="form-step-actions">
+        <button type="button" class="btn-ghost flex-1" id="step3-back">
+          TERUG
+        </button>
+        <button type="submit" class="btn-primary flex-1" id="submit-btn">
+          ABONNEMENT AANVRAGEN
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<style>
+  /* Sticky form actions on mobile */
+  .form-step-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .form-step-actions {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: var(--color-bg-main);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      margin-top: 0;
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    /* Add padding to form content so it's not hidden behind sticky buttons */
+    .form-step {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .step-indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-text-muted);
+    color: var(--color-text-muted);
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+
+  .step-indicator.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-bg-main);
+  }
+
+  .step-indicator.completed {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-bg-main);
+  }
+
+  .step-line.active {
+    background-color: var(--color-primary);
+  }
+
+  .form-step {
+    display: none;
+  }
+
+  .form-step.active {
+    display: block;
+  }
+
+  .membership-card {
+    padding: 24px;
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-text-muted);
+    transition: all 0.3s;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .membership-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  .membership-card.selected {
+    border-color: var(--color-primary);
+    box-shadow: 4px 4px 0px 0px var(--color-primary);
+    transform: translate(-2px, -2px);
+  }
+</style>
+
+<script>
+  // Multi-step form logic
+  let currentStep: number = 1;
+  let selectedMembership: { id: string; name: string; price: string } | null = null;
+
+  const steps = document.querySelectorAll('.form-step');
+  const stepIndicators = document.querySelectorAll('.step-indicator');
+  const stepLines = document.querySelectorAll('.step-line');
+  const membershipCards = document.querySelectorAll('.membership-card');
+
+  // Membership selection
+  membershipCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const htmlCard = card as HTMLButtonElement;
+
+      // Remove selection from all cards
+      membershipCards.forEach(c => c.classList.remove('selected'));
+
+      // Select this card
+      card.classList.add('selected');
+
+      // Store selection
+      selectedMembership = {
+        id: htmlCard.dataset.id || '',
+        name: htmlCard.dataset.name || '',
+        price: htmlCard.dataset.price || ''
+      };
+
+      // Update hidden fields
+      const membershipField = document.getElementById('selected-membership') as HTMLInputElement;
+      const priceField = document.getElementById('selected-price') as HTMLInputElement;
+      const nextBtn = document.getElementById('step1-next') as HTMLButtonElement;
+
+      if (membershipField) membershipField.value = selectedMembership.name;
+      if (priceField) priceField.value = `€${selectedMembership.price}/mnd`;
+      if (nextBtn) nextBtn.disabled = false;
+    });
+  });
+
+  // Step navigation
+  function goToStep(step: number): void {
+    steps.forEach(s => s.classList.remove('active'));
+    steps[step - 1].classList.add('active');
+
+    stepIndicators.forEach((indicator, index) => {
+      indicator.classList.remove('active', 'completed');
+      if (index + 1 < step) {
+        indicator.classList.add('completed');
+      } else if (index + 1 === step) {
+        indicator.classList.add('active');
+      }
+    });
+
+    stepLines.forEach((line, index) => {
+      line.classList.remove('active');
+      if (index + 1 < step) {
+        line.classList.add('active');
+      }
+    });
+
+    currentStep = step;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Step 1 -> Step 2
+  document.getElementById('step1-next')?.addEventListener('click', () => {
+    if (selectedMembership) {
+      goToStep(2);
+    }
+  });
+
+  // Step 2 -> Step 1 (back)
+  document.getElementById('step2-back')?.addEventListener('click', () => {
+    goToStep(1);
+  });
+
+  // Step 2 -> Step 3
+  document.getElementById('step2-next')?.addEventListener('click', () => {
+    const form = document.getElementById('membership-form') as HTMLFormElement;
+    const step2Inputs = form.querySelectorAll('[data-step="2"] input[required]');
+
+    let valid = true;
+    step2Inputs.forEach(input => {
+      if (!(input as HTMLInputElement).checkValidity()) {
+        valid = false;
+        (input as HTMLInputElement).reportValidity();
+      }
+    });
+
+    if (valid) {
+      goToStep(3);
+    }
+  });
+
+  // Step 3 -> Step 2 (back)
+  document.getElementById('step3-back')?.addEventListener('click', () => {
+    goToStep(2);
+  });
+
+  // Form submission
+  document.getElementById('membership-form')?.addEventListener('submit', () => {
+    const submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) {
+      submitBtn.textContent = 'BEZIG MET VERZENDEN...';
+      submitBtn.setAttribute('disabled', 'true');
+    }
+  });
+</script>

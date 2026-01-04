@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy Policy van FitCity Culemborg"
+  showStickyBar={false}
+>
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <SectionHeading
+        title="Privacy Policy"
+        subtitle="Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL')}"
+      />
+
+      <div class="prose prose-invert max-w-none space-y-6 text-text-muted">
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">1. Inleiding</h2>
+        <p>
+          FitCity Culemborg ("wij", "ons", "onze") respecteert de privacy van bezoekers van
+          onze website en klanten van onze sportschool. Deze Privacy Policy legt uit hoe
+          wij persoonlijke gegevens verzamelen, gebruiken en beschermen.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">2. Verzamelde Gegevens</h2>
+        <p>
+          Wij kunnen de volgende persoonlijke gegevens verzamelen:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Naam en contactgegevens (e-mail, telefoon)</li>
+          <li>Lidmaatschapsinformatie</li>
+          <li>Betalingsgegevens (verwerkt via beveiligde betalingsproviders)</li>
+        </ul>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">3. Gebruik van Gegevens</h2>
+        <p>
+          Wij gebruiken uw persoonlijke gegevens om:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Uw lidmaatschap te beheren</li>
+          <li>U te informeren over onze diensten</li>
+          <li>Te voldoen aan wettelijke verplichtingen</li>
+        </ul>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">4. Bescherming van Gegevens</h2>
+        <p>
+          Wij nemen passende technische en organisatorische maatregelen om uw persoonlijke
+          gegevens te beschermen tegen ongeautoriseerde toegang, wijziging of openbaarmaking.
+        </p>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">5. Uw Rechten</h2>
+        <p>
+          U heeft het recht om:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Toegang te vragen tot uw persoonlijke gegevens</li>
+          <li>Correctie of verwijdering van uw gegevens te vragen</li>
+          <li>Bezwaar te maken tegen verwerking van uw gegevens</li>
+        </ul>
+
+        <h2 class="font-display text-2xl text-text-main mt-8 mb-4">6. Contact</h2>
+        <p>
+          Voor vragen over deze Privacy Policy, kunt u contact met ons opnemen:
+        </p>
+        <ul class="list-none space-y-2">
+          <li>E-mail: info@fitcityculemborg.nl</li>
+          <li>Telefoon: +31 6 4687 2274</li>
+          <li>Adres: Houtweg 8, 4104 AB Culemborg</li>
+        </ul>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
