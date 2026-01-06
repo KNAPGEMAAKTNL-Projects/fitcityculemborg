@@ -3,9 +3,10 @@ import { pricingData } from '@data/pricing';
 ---
 
 <div class="membership-signup-form">
-  <!-- Progress Indicator -->
-  <div class="flex items-center justify-center gap-2 mb-12">
-    <div class="flex items-center gap-2">
+  <!-- Step header with navigation -->
+  <div class="step-header">
+    <button type="button" class="btn-ghost step-nav" id="step-back">TERUG</button>
+    <div class="flex items-center justify-center gap-2 step-progress">
       <div class="step-indicator active" data-step="1">
         <span>1</span>
       </div>
@@ -18,6 +19,13 @@ import { pricingData } from '@data/pricing';
         <span>3</span>
       </div>
     </div>
+    <button type="button" class="btn-primary step-nav" id="step-next" disabled>VOLGENDE STAP</button>
+  </div>
+
+  <div class="selected-plan-inline" id="selected-plan-inline" hidden>
+    <div class="plan-label">Geselecteerd</div>
+    <div class="plan-name" id="inline-plan-name">Kies een abonnement</div>
+    <div class="plan-meta" id="inline-plan-meta"></div>
   </div>
 
   <form id="membership-form">
@@ -37,7 +45,7 @@ import { pricingData } from '@data/pricing';
       <!-- 12-Month Memberships -->
       <div class="mb-8">
         <h3 class="font-display text-xl mb-4 text-primary">12-Maanden Abonnementen</h3>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {pricingData.main.map((membership) => (
             <button
               type="button"
@@ -68,7 +76,7 @@ import { pricingData } from '@data/pricing';
       <!-- Ladies Only -->
       <div class="mb-8">
         <h3 class="font-display text-xl mb-4 text-primary">Ladies Only</h3>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {pricingData.ladies.map((membership) => (
             <button
               type="button"
@@ -99,7 +107,7 @@ import { pricingData } from '@data/pricing';
       <!-- Kickboxing -->
       <div class="mb-8">
         <h3 class="font-display text-xl mb-4 text-primary">Kickboksen</h3>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {pricingData.kickboxing.map((membership) => (
             <button
               type="button"
@@ -125,13 +133,6 @@ import { pricingData } from '@data/pricing';
             </button>
           ))}
         </div>
-      </div>
-
-      <!-- Sticky button container for mobile -->
-      <div class="form-step-actions">
-        <button type="button" class="btn-primary w-full" id="step1-next" disabled>
-          VOLGENDE STAP
-        </button>
       </div>
     </div>
 
@@ -260,16 +261,6 @@ import { pricingData } from '@data/pricing';
           />
         </div>
       </div>
-
-      <!-- Sticky button container for mobile -->
-      <div class="form-step-actions">
-        <button type="button" class="btn-ghost flex-1" id="step2-back">
-          TERUG
-        </button>
-        <button type="button" class="btn-primary flex-1" id="step2-next">
-          VOLGENDE STAP
-        </button>
-      </div>
     </div>
 
     <!-- Step 3: Payment & Legal -->
@@ -333,46 +324,52 @@ import { pricingData } from '@data/pricing';
           </label>
         </div>
       </div>
-
-      <!-- Sticky button container for mobile -->
-      <div class="form-step-actions">
-        <button type="button" class="btn-ghost flex-1" id="step3-back">
-          TERUG
-        </button>
-        <button type="submit" class="btn-primary flex-1" id="submit-btn">
-          ABONNEMENT AANVRAGEN
-        </button>
-      </div>
     </div>
   </form>
 </div>
 
 <style>
-  /* Sticky form actions on mobile */
-  .form-step-actions {
+  .step-header {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
   }
 
-  @media (max-width: 767px) {
-    .form-step-actions {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      background: var(--color-bg-main);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      margin-top: 0;
-      padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
+  .step-progress {
+    flex: 1;
+    justify-content: center;
+  }
 
-    /* Add padding to form content so it's not hidden behind sticky buttons */
-    .form-step {
-      padding-bottom: 5rem;
-    }
+  .step-nav {
+    min-width: 140px;
+  }
+
+  .selected-plan-inline {
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  .plan-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+  }
+
+  .plan-name {
+    color: var(--color-text-main);
+    font-weight: 700;
+  }
+
+  .plan-meta {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
   }
 
   .step-indicator {
@@ -442,6 +439,13 @@ import { pricingData } from '@data/pricing';
   const stepIndicators = document.querySelectorAll('.step-indicator');
   const stepLines = document.querySelectorAll('.step-line');
   const membershipCards = document.querySelectorAll('.membership-card');
+  const planName = document.getElementById('inline-plan-name') as HTMLElement | null;
+  const planMeta = document.getElementById('inline-plan-meta') as HTMLElement | null;
+  const inlinePlan = document.getElementById('selected-plan-inline') as HTMLElement | null;
+  const nextBtn = document.getElementById('step-next') as HTMLButtonElement | null;
+  const backBtn = document.getElementById('step-back') as HTMLButtonElement | null;
+  const form = document.getElementById('membership-form') as HTMLFormElement;
+  if (backBtn) backBtn.style.visibility = 'hidden';
 
   // Membership selection
   membershipCards.forEach(card => {
@@ -467,13 +471,15 @@ import { pricingData } from '@data/pricing';
       const membershipNameField = document.getElementById('selected-membership-name') as HTMLInputElement;
       const membershipPriceField = document.getElementById('selected-membership-price') as HTMLInputElement;
       const membershipTermField = document.getElementById('selected-membership-term') as HTMLInputElement;
-      const nextBtn = document.getElementById('step1-next') as HTMLButtonElement;
 
       if (membershipIdField) membershipIdField.value = selectedMembership.id;
       if (membershipNameField) membershipNameField.value = selectedMembership.name;
       if (membershipPriceField) membershipPriceField.value = selectedMembership.price;
       if (membershipTermField) membershipTermField.value = selectedMembership.term;
-      if (nextBtn) nextBtn.disabled = false;
+      if (planName) planName.textContent = selectedMembership.name || 'Kies een abonnement';
+      if (planMeta) planMeta.textContent = selectedMembership.price ? `ƒ,ª${selectedMembership.price} / ${selectedMembership.term || 'mnd'}` : '';
+      if (inlinePlan) inlinePlan.hidden = false;
+      if (currentStep === 1 && nextBtn) nextBtn.disabled = false;
     });
   });
 
@@ -500,42 +506,39 @@ import { pricingData } from '@data/pricing';
 
     currentStep = step;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (backBtn) backBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+    if (nextBtn) {
+      nextBtn.textContent = step === 3 ? 'ABONNEMENT AANVRAGEN' : 'VOLGENDE STAP';
+      nextBtn.disabled = step === 1 && !selectedMembership;
+    }
   }
 
-  // Step 1 -> Step 2
-  document.getElementById('step1-next')?.addEventListener('click', () => {
-    if (selectedMembership) {
-      goToStep(2);
+  const handleNext = () => {
+    if (currentStep === 1) {
+      if (selectedMembership) goToStep(2);
+    } else if (currentStep === 2) {
+      const step2Inputs = form.querySelectorAll('[data-step="2"] input[required]');
+      let valid = true;
+      step2Inputs.forEach(input => {
+        if (!(input as HTMLInputElement).checkValidity()) {
+          valid = false;
+          (input as HTMLInputElement).reportValidity();
+        }
+      });
+      if (valid) goToStep(3);
+    } else if (currentStep === 3) {
+      form.requestSubmit();
     }
-  });
+  };
 
-  // Step 2 -> Step 1 (back)
-  document.getElementById('step2-back')?.addEventListener('click', () => {
-    goToStep(1);
-  });
-
-  // Step 2 -> Step 3
-  document.getElementById('step2-next')?.addEventListener('click', () => {
-    const form = document.getElementById('membership-form') as HTMLFormElement;
-    const step2Inputs = form.querySelectorAll('[data-step="2"] input[required]');
-
-    let valid = true;
-    step2Inputs.forEach(input => {
-      if (!(input as HTMLInputElement).checkValidity()) {
-        valid = false;
-        (input as HTMLInputElement).reportValidity();
-      }
-    });
-
-    if (valid) {
-      goToStep(3);
+  const handleBack = () => {
+    if (currentStep > 1) {
+      goToStep(currentStep - 1);
     }
-  });
+  };
 
-  // Step 3 -> Step 2 (back)
-  document.getElementById('step3-back')?.addEventListener('click', () => {
-    goToStep(2);
-  });
+  nextBtn?.addEventListener('click', handleNext);
+  backBtn?.addEventListener('click', handleBack);
 
   // IBAN Validation
   function validateIBAN(iban: string): boolean {
