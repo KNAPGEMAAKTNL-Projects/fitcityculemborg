@@ -1,0 +1,10 @@
+# Local development environment variables for Cloudflare Workers
+# Copy this file to .dev.vars and fill in your actual values
+# DO NOT commit .dev.vars to git (it's in .gitignore)
+
+# Encryption secret for IBAN numbers (use a strong random string)
+# Generate with: openssl rand -base64 32
+ENCRYPTION_SECRET=your-super-secret-encryption-key-here-min-32-chars
+
+# Optional: Email service API keys (for future notifications)
+# RESEND_API_KEY=re_xxxxxxxxxxxxxxxx

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
+import { decrypt, maskIBAN } from '@utils/encryption';
+
+export const prerender = false; // Server-side rendering required
+
+// Get D1 database
+const db = Astro.locals.runtime.env.DB as D1Database;
+const encryptionSecret = Astro.locals.runtime.env.ENCRYPTION_SECRET as string;
+
+if (!db) {
+  return Astro.redirect('/');
+}
+
+// Fetch all memberships
+const { results: memberships } = await db
+  .prepare(`
+    SELECT
+      id, membership_id, membership_name, membership_price, membership_term,
+      full_name, email, phone, birthdate,
+      address_street, address_number, address_postal, address_city,
+      iban_encrypted, account_holder, start_date,
+      sepa_consent, policy_consent, status,
+      created_at, updated_at, notes
+    FROM memberships
+    ORDER BY created_at DESC
+  `)
+  .all();
+
+// Decrypt IBANs for display (masked)
+const membershipsWithMaskedIban = await Promise.all(
+  (memberships || []).map(async (membership: any) => {
+    try {
+      const decryptedIban = encryptionSecret
+        ? await decrypt(membership.iban_encrypted, encryptionSecret)
+        : '';
+      return {
+        ...membership,
+        iban_masked: maskIBAN(decryptedIban),
+      };
+    } catch (error) {
+      console.error('Error decrypting IBAN for member:', membership.id);
+      return {
+        ...membership,
+        iban_masked: '****',
+      };
+    }
+  })
+);
+
+// Stats
+const stats = {
+  total: memberships?.length || 0,
+  new: memberships?.filter((m: any) => m.status === 'new').length || 0,
+  contacted: memberships?.filter((m: any) => m.status === 'contacted').length || 0,
+  activated: memberships?.filter((m: any) => m.status === 'activated').length || 0,
+};
+---
+
+<BaseLayout
+  title="Inschrijvingen Beheren - Admin"
+  description="Beheer nieuwe lidmaatschap inschrijvingen"
+  showStickyBar={false}
+>
+  <section class="py-16 md:py-24">
+    <Container>
+      <div class="mb-8">
+        <h1 class="heading-xl mb-4">Inschrijvingen Beheren</h1>
+        <p class="text-text-muted">Overzicht van alle lidmaatschap aanmeldingen</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid mb-8">
+        <div class="stat-card">
+          <div class="stat-number">{stats.total}</div>
+          <div class="stat-label">Totaal</div>
+        </div>
+        <div class="stat-card new">
+          <div class="stat-number">{stats.new}</div>
+          <div class="stat-label">Nieuw</div>
+        </div>
+        <div class="stat-card contacted">
+          <div class="stat-number">{stats.contacted}</div>
+          <div class="stat-label">Contact gelegd</div>
+        </div>
+        <div class="stat-card activated">
+          <div class="stat-number">{stats.activated}</div>
+          <div class="stat-label">Geactiveerd</div>
+        </div>
+      </div>
+
+      <!-- Memberships Table -->
+      <div class="table-container">
+        <table class="memberships-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Status</th>
+              <th>Datum</th>
+              <th>Naam</th>
+              <th>Email</th>
+              <th>Telefoon</th>
+              <th>Abonnement</th>
+              <th>Prijs</th>
+              <th>IBAN</th>
+              <th>Startdatum</th>
+              <th>Acties</th>
+            </tr>
+          </thead>
+          <tbody>
+            {membershipsWithMaskedIban.map((member: any) => (
+              <tr class={`status-${member.status}`}>
+                <td>#{member.id}</td>
+                <td>
+                  <span class={`status-badge ${member.status}`}>
+                    {member.status === 'new' && 'Nieuw'}
+                    {member.status === 'contacted' && 'Contact gelegd'}
+                    {member.status === 'activated' && 'Geactiveerd'}
+                    {member.status === 'cancelled' && 'Geannuleerd'}
+                  </span>
+                </td>
+                <td>{new Date(member.created_at).toLocaleDateString('nl-NL')}</td>
+                <td>{member.full_name}</td>
+                <td><a href={`mailto:${member.email}`}>{member.email}</a></td>
+                <td><a href={`tel:${member.phone}`}>{member.phone}</a></td>
+                <td>{member.membership_name}</td>
+                <td>€{member.membership_price}/mnd</td>
+                <td class="font-mono text-sm">{member.iban_masked}</td>
+                <td>{new Date(member.start_date).toLocaleDateString('nl-NL')}</td>
+                <td>
+                  <button class="btn-action" data-id={member.id}>
+                    Details
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {membershipsWithMaskedIban.length === 0 && (
+        <div class="empty-state">
+          <p>Geen inschrijvingen gevonden</p>
+        </div>
+      )}
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-bg-secondary);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-card.new {
+    border-color: var(--color-primary);
+  }
+
+  .stat-card.contacted {
+    border-color: #3B82F6;
+  }
+
+  .stat-card.activated {
+    border-color: var(--color-success);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-text-main);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    background: var(--color-bg-secondary);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .memberships-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .memberships-table thead {
+    background: var(--color-bg-main);
+  }
+
+  .memberships-table th {
+    padding: 1rem;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .memberships-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .memberships-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .memberships-table a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .memberships-table a:hover {
+    text-decoration: underline;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid;
+  }
+
+  .status-badge.new {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: rgba(255, 227, 3, 0.1);
+  }
+
+  .status-badge.contacted {
+    color: #3B82F6;
+    border-color: #3B82F6;
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  .status-badge.activated {
+    color: var(--color-success);
+    border-color: var(--color-success);
+    background: rgba(0, 230, 118, 0.1);
+  }
+
+  .status-badge.cancelled {
+    color: #EF4444;
+    border-color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+  }
+
+  .btn-action {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-main);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-action:hover {
+    background: var(--color-primary);
+    color: var(--color-bg-main);
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px var(--color-primary);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .table-container {
+      font-size: 0.75rem;
+    }
+
+    .memberships-table th,
+    .memberships-table td {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  // TODO: Add detail modal/drawer for viewing full member info
+  document.querySelectorAll('.btn-action').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const memberId = target.dataset.id;
+      alert(`Details for member #${memberId} - Coming soon!`);
+    });
+  });
+</script>

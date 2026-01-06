@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
+---
+
+<BaseLayout
+  title="SEPA Incasso"
+  description="Uitleg over SEPA automatische incasso bij FitCity Culemborg."
+  showStickyBar={false}
+>
+  <section class="py-16 md:py-24">
+    <Container size="narrow">
+      <article class="policy-content card-industrial p-8 md:p-10">
+        <h1>SEPA incasso</h1>
+        <p>
+          We gebruiken SEPA automatische incasso om contributie veilig en op tijd te innen. Bij het versturen van het
+          inschrijfformulier geef je FitCity Culemborg toestemming om bedragen van je rekening te incasseren voor je
+          lidmaatschap en eventuele aanvullende kosten.
+        </p>
+
+        <h2>Hoe het werkt</h2>
+        <ul>
+          <li>Je vult je naam van de rekeninghouder en IBAN in tijdens de online inschrijving.</li>
+          <li>Je bevestigt de SEPA machtiging in het formulier.</li>
+          <li>We starten de incasso pas nadat je inschrijving is geactiveerd.</li>
+        </ul>
+
+        <h2>Je rechten</h2>
+        <ul>
+          <li>Je kunt een afschrijving binnen 8 weken na de incassodatum via je bank laten terugboeken.</li>
+          <li>Je ontvangt vooraf inzicht in de bedragen en frequentie via het gekozen abonnement.</li>
+          <li>Wij slaan IBAN-gegevens alleen op zoals nodig voor de incasso-afhandeling.</li>
+        </ul>
+
+        <h2>Incassantgegevens</h2>
+        <p>
+          FitCity Culemborg<br />
+          Houtweg 8, 4104 AB Culemborg<br />
+        </p>
+      </article>
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .policy-content {
+    color: var(--color-text-muted);
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .policy-content h1,
+  .policy-content h2 {
+    color: var(--color-text-main);
+    letter-spacing: -0.01em;
+  }
+
+  .policy-content h1 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .policy-content h2 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .policy-content h2:first-of-type {
+    margin-top: 2rem;
+  }
+
+  .policy-content p {
+    line-height: 1.75;
+    margin: 1rem 0;
+  }
+
+  .policy-content ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .policy-content li {
+    margin-bottom: 0.35rem;
+  }
+
+  .policy-content strong {
+    color: var(--color-text-main);
+  }
+</style>
