@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import OpenStatusBadge from './OpenStatusBadge.astro';
+import logo from '../../../public/images/fitcity-logov2.png';
+---
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-50 md:hidden"
+  style="display: none;"
+  aria-hidden="true"
+>
+  <!-- Backdrop -->
+  <div
+    id="mobile-menu-backdrop"
+    class="absolute inset-0 bg-black/80 backdrop-blur-md"
+  ></div>
+
+  <!-- Menu Panel -->
+  <div
+    id="mobile-menu-panel"
+    class="absolute top-0 right-0 h-full w-[80%] max-w-sm bg-bg-main/98 backdrop-blur-md border-l-2 border-primary transform translate-x-full transition-transform duration-300"
+  >
+    <!-- Menu Header -->
+    <div class="flex items-center justify-between p-4 border-b border-white/10">
+      <Image src={logo} alt="FitCity Culemborg" class="h-10 w-auto" inferSize />
+      <button
+        id="mobile-menu-close"
+        class="text-text-main hover:text-primary transition-colors"
+        aria-label="Close menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="flex flex-col p-6 space-y-6">
+      <!-- Status Badge -->
+      <div class="pb-4 border-b border-white/10">
+        <OpenStatusBadge />
+      </div>
+
+      <!-- Navigation Links -->
+      <a
+        href="/#pricing"
+        class="text-xl font-display text-text-main hover:text-primary transition-colors mobile-menu-link"
+      >
+        PRIJZEN
+      </a>
+      <a
+        href="/ladies-only"
+        class="text-xl font-display text-text-main hover:text-primary transition-colors mobile-menu-link"
+      >
+        LADIES ONLY
+      </a>
+      <a
+        href="/kickboxing"
+        class="text-xl font-display text-text-main hover:text-primary transition-colors mobile-menu-link"
+      >
+        KICKBOXING
+      </a>
+      <a
+        href="/contact"
+        class="text-xl font-display text-text-main hover:text-primary transition-colors mobile-menu-link"
+      >
+        CONTACT
+      </a>
+
+      <!-- CTA Button -->
+      <div class="pt-4">
+        <a href="/signup" class="btn-primary w-full text-center block mobile-menu-link">
+          WORD NU LID
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu functionality
+  const menuButton = document.getElementById('mobile-menu-button');
+  const menuClose = document.getElementById('mobile-menu-close');
+  const menu = document.getElementById('mobile-menu');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+  const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+  const menuLinks = document.querySelectorAll('.mobile-menu-link');
+
+  function openMenu() {
+    if (!menu || !menuPanel || !menuButton) return;
+
+    menu.style.display = 'block';
+    menuButton.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+      menuPanel.classList.remove('translate-x-full');
+      menuPanel.classList.add('translate-x-0');
+    });
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!menu || !menuPanel || !menuButton) return;
+
+    menuPanel.classList.remove('translate-x-0');
+    menuPanel.classList.add('translate-x-full');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+
+    // Hide menu after animation
+    setTimeout(() => {
+      menu.style.display = 'none';
+    }, 300);
+
+    // Restore body scroll
+    document.body.style.overflow = '';
+  }
+
+  // Event listeners
+  menuButton?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+  menuBackdrop?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking links
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.style.display === 'block') {
+      closeMenu();
+    }
+  });
+
+  // Prevent scroll on menu panel
+  menuPanel?.addEventListener('touchmove', (e) => {
+    e.stopPropagation();
+  }, { passive: false });
+</script>

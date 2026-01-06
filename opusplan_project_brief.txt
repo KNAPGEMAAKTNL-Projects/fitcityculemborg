@@ -1,0 +1,1454 @@
+# FITCITY CULEMBORG - Development Brief
+
+## Reference Documents
+Before planning, read:
+- This project brief (client-specific requirements)
+
+## Project Overview
+
+Fitcity Culemborg is an affordable, no-frills fitness center in Culemborg that positions itself as "De meest betaalbare sportschool van de regio" (The most affordable gym in the region). Founded in August 2018, Fitcity serves a diverse community including working professionals, students, and a significant Moroccan population.
+
+The gym differentiates itself through three core offerings: quality fitness equipment (Nautilus, Technogym, Sports Art), a dedicated ladies-only section (~25% of membership base, currently expanding), and kickboxing programs for adults aged 18-35. Additionally, Fitcity is MDT-certified (Maatschappelijke Diensttijd), positioning them as a social enterprise working with municipalities and schools on youth development programs.
+
+The current website (fitcityculemborg.nl) is an incomplete WordPress site with placeholder "Lorem ipsum" content that cannot convert visitors. The primary goal is to create a conversion-focused website that captures membership signups online while maintaining the owner's preferred manual Mollie subscription management process. Success will be measured by any new membership acquired through the website, with a broader business goal of 10% membership growth.
+
+## Business Context
+
+### Company Background
+- **Founded:** August 2018
+- **Legal Structure:** Eenmanszaak (sole proprietorship)
+- **Location:** Houtweg 8, 4104 AB Culemborg (former office building, near Action store, 10-min walk from train station)
+- **Rating:** 4.8/5 stars across 24 reviews on various platforms
+
+### Service Offering
+**Fitness Facilities:**
+- Quality equipment from Nautilus, Technogym, Sports Art brands
+- Free weights section
+- Cardio equipment
+- Ladies-only section (separate private area, ~25% of members, currently expanding)
+- Small lockers for keys/mobile phones (keys included)
+- No showers (by design, keeps costs low)
+- Toilets and locker rooms available
+- Bar area serving protein shakes and snacks (protein bars)
+
+**Kickboxing:**
+- Dedicated dojo space
+- Adult programs (ages 18-35, men and women)
+- Kids kickboxing discontinued
+- Equipment provided (gloves available if needed)
+- Classes require signup to reserve spots
+
+**Additional Services:**
+- Personal training available
+- Individuele begeleiding (individual guidance)
+- MDT Break Out program (youth development, nationally recognized certificate program)
+- Day activities/dagbesteding
+
+**Unique Features:**
+- Most affordable pricing in region (€20.50-37.50/month)
+- Ladies-only section for privacy/cultural accommodation
+- MDT certification (social enterprise status)
+- Quality equipment despite budget pricing
+- Friendly, supportive atmosphere ("left alone if you want, help if you need")
+
+### Current Customer Acquisition Process
+1. Discovery: Word of mouth, Google Business Profile, physically seeing the location
+2. Visit: Walk-in or call ahead
+3. Tryout: €7 dagpas or sometimes free
+4. Signup: Paper form with SEPA mandaat details
+5. Payment: €17 inschrijfkosten paid on location for liquidity
+6. Recurring: Rashid manually creates customer/subscription in Mollie
+
+**Owner Preference:** Wants online form collection but manual Mollie management (no automatic subscription creation)
+
+### Target Audience
+
+**Primary Demographics:**
+- Working professionals (including distribution center workers, pickers - Eastern European community)
+- Students (high school and college)
+- Age range: 18-45 primarily
+- Mixed income levels, price-conscious
+- Strong Moroccan community presence
+
+**Psychographics:**
+- Value affordability without sacrificing equipment quality
+- Prefer no-frills approach (don't need sauna, wellness, fancy amenities)
+- Want basics executed well
+- Appreciate friendly, non-judgmental atmosphere
+- Ladies-only seekers value privacy for cultural/religious reasons
+- Kickboxing students seeking fitness + skill development
+
+**Customer Pain Points:**
+- Can't find clear information online (current site has placeholder text)
+- Uncertain about what equipment is available
+- Don't know opening hours (especially during holidays)
+- Can't book tryout or express membership interest online
+- Concerned about shower availability (addressed by honest positioning)
+
+**Geographic Reach:**
+- Primary: 80% Culemborg city
+- Secondary: Beusichem, Buren, Tricht, Buurmalsen, Rumpt, Beeds, Zoelmond (towns with limited gym options)
+- Realistic service area: 10-15 minute drive from Culemborg
+
+### Competitive Landscape
+
+**Direct Local Competitors:**
+- **Healthcenter Culemborg** - Higher end, wellness/sauna, 36 group classes/week, higher pricing
+- **Circle Fit Culemborg** - 30-minute circuit training, 24/7 access, €37.50/4 weeks, beginner-focused (similar to Milon concept)
+- **Training Factory Culemborg** - Kickboxing, BJJ, fitness, fighting bootcamp
+- **Gunther's Family Fit** - Larger operation (10-19 employees)
+- **Coret Fitness V.O.F.** - Local independent
+
+**Regional Chains:**
+- Basic-Fit (low-budget national chain)
+- Fit For Free (low-budget segment)
+
+**Fitcity's Differentiation:**
+1. **Price + Quality Equipment** - Lowest pricing but premium equipment brands (Nautilus, Technogym, Sports Art)
+2. **Ladies-Only Section** - Rare offering in Culemborg, culturally significant
+3. **Kickboxing Integration** - Combined membership options
+4. **MDT Certification** - Social enterprise status, youth development programs
+5. **No-Frills Honesty** - Transparent about what they offer and don't offer
+6. **Friendly Vibe** - Balance of leaving people alone and being available to help
+
+**Competitive Positioning:** Not competing with wellness centers (Healthcenter) or 24/7 convenience gyms (Circle Fit). Targeting serious fitness enthusiasts and budget-conscious members who prioritize equipment quality and variety over amenities.
+
+## Service Area & Local Strategy
+
+### Geographic Scope
+- **Primary Location:** Houtweg 8, 4104 AB Culemborg
+- **Service Area:** Culemborg (80%) + surrounding towns (20%)
+- **Secondary Markets:** Beusichem, Buren, Tricht, Buurmalsen, Rumpt, Beeds, Zoelmond
+
+### Location Page Strategy
+Create dedicated SEO landing pages for:
+1. **Fitness Culemborg** (primary, most volume)
+2. **Fitness Beusichem**
+3. **Fitness Buren** 
+4. **Fitness Tricht**
+5. **Fitness Buurmalsen**
+
+Each page should:
+- Target "[fitness/sportschool] [city name]" keywords
+- Include local context (distance from city center, why locals choose Fitcity)
+- Same pricing, services, but localized introduction
+- Internal link back to main pricing/contact pages
+
+### Local SEO Priorities
+**Keywords to Target:**
+- "sportschool Culemborg"
+- "fitness Culemborg"
+- "kickboksen Culemborg"
+- "goedkoopste sportschool Culemborg"
+- "ladies only sportschool Culemborg"
+- "gym Culemborg"
+- Plus variations for secondary cities
+
+**Local Signals:**
+- Google Business Profile integration (reviews, map embed)
+- Address markup (Schema.org LocalBusiness)
+- Opening hours structured data
+- Near Action store (local landmark)
+- 10-minute walk from train station
+
+## Design Direction & Brand
+
+### Visual Style Preference
+**Moderately Expressive** - Balance of visuals and content
+- Professional structure with energetic personality
+- Not minimal/sterile (not like medical site)
+- Not overwhelming/cluttered (not overly "extreme" fitness vibe)
+- Inspiration: Circle Fit's clean consistency with brand colors
+- Think: Basic-Fit evolution (clean, branded, accessible)
+
+### Emotional Goals
+Primary emotions to evoke:
+1. **Energy & Motivation** - Like the gym's Arnold/Rock/Ronnie Coleman posters
+2. **Welcoming & Accessible** - "You belong here regardless of fitness level"
+
+### Brand Personality
+**Core Words:** Energetic, Motivating, Ambitious, Inclusive
+
+**How This Translates:**
+- Energetic: Bold yellow (#FFE303) used confidently, dynamic layouts
+- Motivating: Action-oriented copy, "Start Today" CTAs, transformation focus
+- Ambitious: Serious equipment, goal-oriented messaging
+- Inclusive: Ladies-only section prominence, welcoming tone, diverse imagery
+
+### Existing Brand Assets
+**Logo:** Provided (fitcity-logo.png)
+- Black silhouettes (male + female with dumbbells) on bright yellow
+- "FITCITY" in grunge-textured bold type
+- "CULEMBORG" in clean yellow type on black bar
+- Conveys: Inclusive (both genders), strong, energetic
+
+**Favicon:** Provided (favicon.png)
+- Just the silhouettes without text
+- Works well at small sizes
+
+**Color Palette:**
+- **Primary:** #FFE303 (bright yellow - brand color)
+- **Secondary:** #000000 (black)
+- **Accent:** Consider dark grays for text, white for backgrounds
+- **Emphasis:** Use yellow strategically (not overwhelming)
+
+**Typography:**
+- Logo uses grunge/distressed bold sans-serif
+- Website should use clean, modern sans-serif fonts
+- High readability for pricing tables and forms
+
+**Photography:**
+- Placeholder containers initially (images to be added later)
+- Eventually: Gym equipment photos, ladies-only section, kickboxing dojo
+- Motivational stock photos acceptable for hero sections
+- Avoid overly polished/fake gym stock photos (maintain authentic vibe)
+
+### Design References
+**Websites Admired:**
+- **Circle Fit** (circlefit.com) - Clean design, consistent brand colors, modern booking flow
+- **Basic-Fit** - Clear membership card selection, pricing transparency
+
+**What to Avoid:**
+- Overly corporate/medical feeling
+- Heavy text blocks without visuals
+- Cluttered layouts
+- Generic stock photo overuse
+- Complicated navigation
+
+## User Experience & Conversion Strategy
+
+### Primary Conversion Goal
+**#1 Action:** Membership signup (online form submission with all SEPA details)
+
+**Secondary Actions:**
+- Tryout/rondleiding request
+- Contact form submission
+- Phone call during business hours
+- WhatsApp message
+
+### User Journey
+
+**Discovery Phase:**
+- **How they find the site:** 
+  - Organic search: "sportschool Culemborg", "fitness Culemborg"
+  - Google Business Profile
+  - Word of mouth → Google search
+  - Social media (Instagram, TikTok, Facebook)
+  
+- **Mindset:** 
+  - Looking for affordable gym option
+  - Checking if equipment meets their needs
+  - Ladies may be seeking privacy/cultural accommodation
+  - Want to verify legitimacy before visiting
+
+**Consideration Phase:**
+- **Key Questions They Need Answered:**
+  1. How much does it cost? (pricing transparency critical)
+  2. What equipment do you have?
+  3. Are there showers? (address honestly in FAQ)
+  4. Can I try it first? (tryout options clear)
+  5. Is there parking?
+  6. What are the opening hours?
+  7. Is there really a ladies-only section?
+  8. What's included in kickboxing classes?
+  
+- **Objections to Address:**
+  - No showers → Position as "no-frills keeps costs low", lockers available
+  - Never heard of them → Google reviews, established since 2018, quality equipment brands
+  - Too cheap = low quality? → Show equipment brands, honest about what they offer
+  - Contract commitment → Show flex month-to-month options available
+
+**Decision Phase:**
+- **Primary CTA:** "Word Lid" or "Start Vandaag" (Become a Member / Start Today)
+- **Friction Reducers:** 
+  - Free tryout option (€7 dagpas or request free rondleiding)
+  - Clear 6-month and month-to-month options (not just annual)
+  - Visual membership cards (like Circle Fit/Basic-Fit) not dropdown
+  - "No obligation tryout" messaging
+- **Secondary CTA:** "Probeer Gratis" (Try for Free) - lower commitment
+
+### Homepage Above-the-Fold Strategy
+**Option A Approach (Client Selected):**
+- Bold hero section with motivational image/energy
+- Headline: "De Meest Betaalbare Sportschool van de Regio"
+- Subheadline: "Fitness & Kickboksen vanaf €20,50 per maand"
+- Primary CTA: "Word Lid" (yellow button, prominent)
+- Secondary CTA: "Probeer Gratis"
+- Trust badge: "4.8★ op Google" with review count
+
+**Below the Fold:**
+- Three-column value props: "Kwaliteit Apparatuur", "Ladies Only", "Kickboksen"
+- Membership packages (visual cards with pricing)
+- Ladies-only section highlight with photo
+- Equipment brands showcase (Nautilus, Technogym, Sports Art logos)
+- Google reviews section
+- Clear opening hours
+- Location map
+
+### Tryout/Rondleiding Flow
+
+**Fitness & Ladies-Only Tryout:**
+1. Click "Probeer Gratis" CTA
+2. Form appears:
+   - Naam (name)
+   - Telefoon (phone)
+   - Email
+   - **Date picker** (preferred date)
+   - **Time picker** (preferred time)
+   - "Ik ben geïnteresseerd in" checkboxes: Fitness / Ladies Only / Beide
+   - Message/questions field (optional)
+3. Submit → Confirmation message: "Bedankt! We nemen binnen 24 uur contact met je op."
+4. Email notification to Rashid
+5. Admin panel shows request
+6. Rashid/staff calls to confirm
+
+**Kickboxing Tryout:**
+1. Click "Probeer Kickboksen" from kickboxing page
+2. Form appears:
+   - Naam, telefoon, email
+   - **Class selection dropdown** (showing upcoming classes for next 2 weeks with dates/times)
+   - Message/questions field
+3. Submit → Confirmation
+4. Rashid receives notification
+5. Confirms spot via phone/email
+
+### Membership Signup Flow
+
+**User Flow:**
+1. Click "Word Lid" from anywhere on site
+2. Land on signup page with:
+   - Brief intro: "Vul onderstaande gegevens in en we regelen je lidmaatschap binnen 24 uur"
+   - Legal note: "Door te registreren geef je toestemming voor het SEPA incasso mandaat"
+
+3. **Step 1: Choose Membership (Visual Cards)**
+   Display membership options as large, clickable cards (like Circle Fit/Basic-Fit):
+   
+   **12-Maanden Abonnementen:**
+   - Smart Deal: €24.50/mnd | Onbeperkt fitness
+   - Combi Deal: €39.50/mnd | 2 personen, onbeperkt fitness
+   - Ladies Only Jaar: €20.50/mnd | Ladies only + fitness
+   - Ultimate Fit Deal: €37.50/mnd | Fitness + kickboksen
+   - Kickboksen 1x p/w: €19.95/mnd | 1 training per week
+   - Kickboksen Onbeperkt: €26.95/mnd | Onbeperkt kickboksen
+   
+   **6-Maanden Abonnementen:**
+   - Fit Deal (6 mnd): €29.50/mnd | Onbeperkt fitness
+   - Ladies Halfjaar: €25.50/mnd | Ladies only + fitness
+   
+   **Flexibele Abonnementen:**
+   - Maand Flex: €37.00/mnd | Maandelijks opzegbaar
+   - Ladies Flex: €32.00/mnd | Maandelijks opzegbaar
+   
+   Each card shows: name, price, duration, what's included, "Kies Dit Abonnement" button
+
+4. **Step 2: Personal Details**
+   - Volledige naam (full name)
+   - Email
+   - Telefoon
+   - Geboortedatum (birthdate)
+   - Adres (volledig - straat, huisnummer, postcode, plaats)
+   - Startdatum voorkeur (date picker - when they want to start)
+
+5. **Step 3: Payment Details (SEPA)**
+   - IBAN
+   - Naam rekeninghouder (account holder name)
+   
+   **Legal Text (Required for SEPA Mandaat):**
+   Full SEPA mandaat authorization text with:
+   - Creditor ID
+   - Mandate reference
+   - Authorization language per EU regulations
+   
+   **Checkboxes (Required):**
+   ☐ Ik ga akkoord met het SEPA incasso mandaat
+   ☐ Ik heb de privacyverklaring gelezen en ga hiermee akkoord
+   ☐ Ik ga akkoord met de algemene voorwaarden
+   
+   Links to: Privacy Policy, Terms & Conditions (separate pages)
+
+6. **Submit:**
+   - Button: "Abonnement Aanvragen"
+   - Loading state while processing
+   - Success page: "Welkom bij Fitcity! We hebben je aanmelding ontvangen en nemen binnen 24 uur contact op om je lidmaatschap te activeren. De inschrijfkosten van €17 betaal je bij je eerste bezoek."
+
+7. **Backend:**
+   - Form data saved to database
+   - Email notification to Rashid with all details
+   - Admin panel shows new signup marked as "Te Verwerken"
+   - Rashid manually creates subscription in Mollie
+   - Marks as "Verwerkt" in admin panel
+
+### Ladies-Only Section Strategy
+**Prominence Level:** High (25% of members, expanding)
+
+**Homepage:**
+- Dedicated section: "Ladies Only Zone"
+- Brief description: "Aparte ruimte voor vrouwen die in privacy willen trainen"
+- Photo of ladies-only section (when available)
+- Link to dedicated page
+
+**Dedicated Page (ladies-only):**
+- What it is: Separate private area with full fitness equipment
+- Who it's for: Any woman preferring privacy (general messaging, not specifically religious)
+- What's included: Same quality equipment, lockers, toilets
+- Pricing: €20.50/mnd (Ladies Only Jaar) or €25.50/mnd (6 months) or €32/mnd (flex)
+- Photos: Ladies-only section, equipment available
+- Testimonial: Quote from satisfied ladies-only member (if available)
+- CTA: "Probeer Ladies Only Gratis" (links to tryout form with Ladies Only pre-checked)
+
+**Tone:** Welcoming and practical, emphasizing privacy without over-explaining cultural reasons. Let it be universally appealing to any woman who prefers a women-only environment.
+
+### Kickboxing Integration Strategy
+**Positioning:** Equally prominent to fitness (integrated offering, not secondary service)
+
+**Homepage Presence:**
+- Hero section mentions "Fitness & Kickboksen"
+- Dedicated section: "Kickboksen" with dojo photo
+- Shows kickboxing pricing options
+- "Probeer Kickboksen" CTA
+
+**Dedicated Landing Page (/kickboksen):**
+- **For SEO:** Target "kickboksen Culemborg" searches
+- **Content:**
+  - Program overview: Adult classes (ages 18-35)
+  - What to expect: Technical skills, fitness, community
+  - Equipment provided: Gloves available if needed
+  - Schedule: Upcoming class times
+  - Pricing: 
+    - €19.95/mnd - 1x per week
+    - €26.95/mnd - Onbeperkt
+    - €37.50/mnd - Ultimate Fit Deal (fitness + kickboxing combined)
+  - Tryout process: Select from upcoming class schedule
+  - Photos: Dojo space, class in action (when available)
+  - CTA: "Meld Je Aan voor een Proefles"
+
+**Navigation:** Equal visibility to Fitness in main menu
+
+### Trust-Building Strategy
+
+**Google Reviews Integration:**
+- Homepage section: "Wat Onze Leden Zeggen"
+- Display: Curated 3-5 best testimonials OR embedded Google reviews widget
+- Show rating: "4.8★ op Google (24 beoordelingen)"
+- Link: "Bekijk alle reviews op Google" → Google Business Profile
+- Consider: Automatic refresh of latest reviews via API (Phase 2)
+
+**Equipment Credibility:**
+- Showcase brands: Nautilus, Technogym, Sports Art
+- Brief mention: "Professionele apparatuur van toonaangevende merken"
+- Photo carousel: Different equipment areas (when photos available)
+
+**Transparency:**
+- Honest about no showers (in FAQ, not prominent)
+- Clear pricing (no hidden fees except €17 inschrijfkosten mentioned upfront)
+- Real photos (eventually) vs stock photos
+- Established since 2018 (longevity)
+
+**Social Proof:**
+- Instagram feed embed (Phase 2) showing active community
+- Member count if impressive (if Rashid wants to share)
+- MDT certification badge (government-recognized program)
+
+**Legitimacy Signals:**
+- Physical address with Google Maps
+- Phone number and WhatsApp (real contact methods)
+- Business hours clearly displayed
+- Social media presence links
+
+## Content Strategy
+
+### Page Structure
+
+**Core Pages:**
+
+1. **Homepage**
+   - Hero with value proposition and pricing teaser
+   - Services overview (Fitness, Ladies Only, Kickboksen)
+   - Membership packages (visual cards)
+   - Ladies-only highlight
+   - Equipment showcase (brands)
+   - Google reviews section
+   - Opening hours + location
+   - Footer with all links
+
+2. **Fitness**
+   - What we offer: Equipment overview
+   - Ladies-only section (brief mention, link to dedicated page)
+   - Pricing for fitness memberships
+   - Equipment brands (Nautilus, Technogym, Sports Art)
+   - What's included (lockers, toilets, bar for shakes/snacks)
+   - What's NOT included (showers - honest positioning)
+   - Photo gallery (placeholder containers)
+   - CTA: "Word Lid" or "Probeer Gratis"
+
+3. **Ladies Only** (dedicated page)
+   - What is it: Private section for women
+   - Who is it for: Any woman preferring privacy
+   - What's included: Equipment, amenities
+   - Pricing: Ladies-specific packages
+   - Photos: Ladies-only area
+   - Testimonial(s)
+   - CTA: "Probeer Ladies Only Gratis"
+
+4. **Kickboksen** (SEO landing page)
+   - Program overview
+   - Age group: Adults 18-35
+   - What to expect: Skills, fitness, community
+   - Equipment provided: Gloves available
+   - Class schedule preview
+   - Pricing: Kickboxing packages
+   - Photos: Dojo space
+   - CTA: "Meld Je Aan voor een Proefles"
+
+5. **Prijzen** (Pricing page)
+   - ALL membership options in clean table or card format
+   - Grouped by:
+     - 12-maanden abonnementen
+     - 6-maanden abonnementen  
+     - Flexibele abonnementen
+     - Eenmalige producten (Quick Deal 3 months, Dagpas)
+   - Each shows: Name, price, duration, what's included
+   - Note about €17 inschrijfkosten (one-time signup fee)
+   - Comparison helper (which membership fits your needs?)
+   - CTA: "Kies Je Abonnement"
+
+6. **Over Ons** (About Us)
+   - Brief gym philosophy (NOT Rashid's personal story per his preference)
+   - "Established 2018, serving Culemborg community"
+   - What makes us different:
+     - Most affordable in region
+     - Quality equipment from top brands
+     - Ladies-only section
+     - Kickboxing integration
+     - MDT certification (social impact)
+   - Photos: Gym exterior, interior spaces
+   - No team photos/bios (lean operation, staff prefers privacy)
+
+7. **MDT Break Out** (when owner provides details)
+   - What is MDT: Youth development program, nationally recognized
+   - Break Out program specifics (awaiting info from owner)
+   - Who qualifies: Age range, criteria
+   - Benefits: Skill development, certificate, fitness access
+   - How to apply: Contact process
+   - Partnership: Municipality/school collaboration potential
+   - CTA: "Meer Informatie" (contact form)
+
+8. **Contact**
+   - Contact form (general inquiries)
+   - Address: Houtweg 8, 4104 AB Culemborg
+   - Phone: 06 46872274 (click-to-call)
+   - WhatsApp: Same number (WhatsApp button with pre-filled message)
+   - Email: itnerdnl@gmail.com
+   - Opening hours (full schedule)
+   - Google Maps embed (directions)
+   - Parking info: Free parking, ~9 spots + street parking
+   - Directions: "Near Action, 10-minute walk from train station"
+   - Public transport: No direct connection from station
+   - "Kom langs tijdens openingstijden of boek een rondleiding"
+
+9. **Privacy Policy** (AVG/GDPR compliance)
+   - Required for SEPA mandaat collection
+   - Standard Dutch privacy policy template
+   - Sections:
+     - What data we collect (personal info, SEPA details)
+     - Why we collect it (membership management, payment processing)
+     - How we store it (secure database, Mollie for payments)
+     - Your rights (access, correction, deletion)
+     - Contact for privacy questions
+   - Last updated date
+
+10. **Algemene Voorwaarden** (Terms & Conditions)
+    - Membership terms
+    - Cancellation policy
+    - Payment terms (Mollie recurring billing)
+    - Facility rules
+    - Liability disclaimer
+    - Standard gym terms template
+
+**Location Pages (SEO):**
+- /fitness-culemborg (main city page)
+- /fitness-beusichem
+- /fitness-buren
+- /fitness-tricht
+- /fitness-buurmalsen
+
+Each location page:
+- H1: "Fitness [City Name] - Fitcity Culemborg"
+- Intro: "Op zoek naar een betaalbare sportschool in [City]? Fitcity Culemborg ligt op [X] minuten rijden..."
+- Same services, pricing, features as main site
+- Local context: Distance from city center, why residents choose us
+- Link to main pricing/contact pages
+- Same CTAs
+- Schema markup with LocalBusiness pointing to same Culemborg address
+
+### FAQ Implementation
+
+**Approach:** Dedicated FAQ section on homepage (expandable accordion) + integrated into relevant pages
+
+**Core Questions (Priority Order):**
+
+1. **Hoeveel kost een abonnement?**
+   - Answer: "Onze abonnementen beginnen bij €20,50 per maand voor Ladies Only. Bekijk alle opties op onze prijzenpagina." [Link to Prijzen]
+
+2. **Kan ik eerst een proefles of rondleiding krijgen?**
+   - Answer: "Ja! Je kunt gratis een rondleiding aanvragen via ons contactformulier, of een dagpas kopen voor €7 om de sportschool te proberen."
+
+3. **Zijn er douches?**
+   - Answer: "Nee, we hebben geen douches. Dit helpt ons de kosten laag te houden. We hebben wel kleedkamers, toiletten, en kleine kluisjes voor je spullen."
+
+4. **Waar kan ik parkeren?**
+   - Answer: "We hebben ongeveer 9 gratis parkeerplaatsen direct voor het pand. Als deze vol zijn, is er voldoende gratis straatparkeren binnen 20 meter lopen."
+
+5. **Wat voor apparatuur hebben jullie?**
+   - Answer: "We hebben professionele apparatuur van Nautilus, Technogym en Sports Art. Dit omvat vrije gewichten, kabelapparaten, cardio-apparatuur en meer. Alle basics zijn gedekt."
+
+6. **Hoe werkt de Ladies Only ruimte?**
+   - Answer: "We hebben een aparte ruimte speciaal voor vrouwen die graag in privacy trainen. Deze ruimte heeft dezelfde kwaliteit apparatuur als de rest van de sportschool."
+
+7. **Wat is inbegrepen bij kickboksen?**
+   - Answer: "Je krijgt professionele kickbokslessen in onze dojo. Kickbokshandschoenen zijn beschikbaar als je die nodig hebt. Trainingen zijn geschikt voor beginners en gevorderden."
+
+8. **Hoe lang is mijn contract?**
+   - Answer: "We hebben 12-maanden, 6-maanden, en maandelijks opzegbare (flex) abonnementen. Kies wat bij je past!"
+
+9. **Wat zijn de inschrijfkosten?**
+   - Answer: "Er is een eenmalige inschrijfkost van €17 die je betaalt bij je eerste bezoek."
+
+10. **Zijn de abonnementen automatisch verlengend?**
+    - Answer: "Ja, abonnementen verlengen automatisch tenzij je opzegt. Voor flex abonnementen kan je maandelijks opzeggen."
+
+11. **Hoe meld ik me aan?**
+    - Answer: "Vul het online aanmeldformulier in met je gegevens en IBAN voor automatische incasso. We nemen binnen 24 uur contact op om je lidmaatschap te activeren."
+
+12. **Wat zijn de openingstijden?**
+    - Answer: "Ma-Vr: 08:30-22:00, Za: 09:00-16:00, Zo: 09:30-16:00. Tijdens feestdagen kunnen de tijden afwijken - bel voor zekerheid."
+
+13. **Is Fitcity geschikt voor beginners?**
+    - Answer: "Absoluut! We hebben leden van alle niveaus. De sfeer is vriendelijk en je kunt individuele begeleiding aanvragen als je hulp nodig hebt."
+
+14. **Wat moet ik meenemen naar de sportschool?**
+    - Answer: "Een handdoek en evt. een waterfles. Je krijgt een sleuteltje voor een klein kluisje voor je telefoon en sleutels."
+
+15. **Kan ik op elk moment opzeggen?**
+    - Answer: "Dit hangt af van je abonnement. Flex abonnementen zijn maandelijks opzegbaar. 6- en 12-maanden abonnementen hebben een minimale looptijd."
+
+**Organization:**
+- Homepage: Accordion with top 8 questions
+- Fitness page: Equipment/facility questions
+- Ladies Only page: Privacy/access questions
+- Kickboksen page: Class/program questions  
+- Prijzen page: Pricing/contract questions
+
+### Content Sourcing
+
+**From Client:**
+- Basic information about services (already provided in discovery)
+- Pricing packages (already provided)
+- Opening hours (already provided)
+- MDT Break Out details (awaiting from owner)
+- Photos (to be added later, placeholders for now)
+
+**To Be Created (by designer/developer):**
+- All copywriting for pages (casual, friendly, motivational tone)
+- FAQ answers (based on common questions discussed)
+- Page structure and flow
+- Call-to-action text
+- Form instructions and legal text (SEPA mandaat, privacy policy, terms)
+
+**Approval Process:**
+- Initial draft: Create all copy based on discovery insights
+- Review: Yannick reviews for accuracy and tone
+- Refinement: Adjust based on feedback
+- Final: Rashid gives verbal approval (minimal involvement needed)
+
+### Tone of Voice
+
+**Style Guide:**
+- **Pronoun:** "jij/je" (casual) not "u" (formal)
+- **Energy Level:** Motivational but not aggressive, enthusiastic without being cheesy
+- **Sentence Length:** Mix of short punchy sentences and medium explanatory ones
+- **Personality:** Friendly gym buddy who knows their stuff, not corporate gym brand
+- **Honesty:** Direct about what they offer and don't offer (no showers = keeps prices low)
+- **Inclusivity:** Welcoming to all fitness levels, genders, backgrounds
+
+**Example Sentences:**
+- ❌ "Wij bieden u een uitstekende sportervaring met hoogwaardige faciliteiten." (too formal, corporate)
+- ✅ "Train met topapparatuur van Nautilus en Technogym, zonder de hoge prijzen." (casual, clear value)
+
+- ❌ "Onze sportfaciliteit is voorzien van state-of-the-art equipment." (too formal, vague)
+- ✅ "Alle basics zijn gedekt: vrije gewichten, kabelapparaten, cardio. Alles wat je nodig hebt om je doelen te bereiken." (specific, motivational)
+
+- ❌ "Het is mogelijk om gebruik te maken van onze speciale dames-afdeling." (passive, boring)
+- ✅ "Train in privacy in onze aparte Ladies Only ruimte. Dezelfde kwaliteit, extra comfort." (active, benefit-focused)
+
+**AI-Avoidance:**
+- No: "embark on your fitness journey", "state-of-the-art", "comprehensive", "cutting-edge"
+- Yes: "start vandaag", "topapparatuur", "alles wat je nodig hebt", "gewoon goed"
+
+### Opening Hours Display
+
+**Standard Hours:**
+- Maandag - Vrijdag: 08:30 - 22:00
+- Zaterdag: 09:00 - 16:00
+- Zondag: 09:30 - 16:00
+
+**Implementation:**
+- Prominent display on homepage (sidebar or dedicated section)
+- Full details on Contact page
+- Structured data markup for Google (OpeningHoursSpecification)
+
+**Holiday/Seasonal Changes:**
+- No planned seasonal changes mentioned
+- If hours change: Manual update by admin (future: admin panel feature to update hours)
+- Consider: Banner notification system for temporary hour changes
+
+**Ladies-Only Hours:**
+- Same as general gym hours (no separate schedule mentioned)
+
+## Feature Requirements
+
+### Must-Have Features (Phase 1 - Launch)
+
+**1. Online Membership Signup System**
+- Visual membership card selection (like Circle Fit/Basic-Fit interface)
+- Multi-step form:
+  - Step 1: Choose membership (cards, not dropdown)
+  - Step 2: Personal details
+  - Step 3: SEPA payment details
+- Legal compliance: SEPA mandaat authorization, privacy policy acceptance, terms acceptance
+- Form validation (IBAN format, email format, required fields)
+- Success confirmation page
+- Email notification to Rashid with all details
+- Admin panel integration (view submitted signups)
+
+**2. Tryout/Rondleiding Booking System**
+- **Fitness/Ladies-Only Flow:**
+  - Form fields: name, phone, email
+  - Date picker (preferred date)
+  - Time picker (preferred time)
+  - Interest checkboxes (Fitness / Ladies Only / Beide)
+  - Message/question field
+- **Kickboxing Flow:**
+  - Form fields: name, phone, email  
+  - Class selection dropdown (upcoming classes for next 2 weeks with specific dates/times)
+  - Message/question field
+- Email notification to Rashid
+- Admin panel shows requests
+- Confirmation message to user
+
+**3. Admin Panel (Behind Cloudflare Zero Trust)**
+- **Authentication:** Cloudflare Access + simple password login
+- **Dashboard View:**
+  - "Nieuwe Aanmeldingen" count
+  - "Nieuwe Proefles Aanvragen" count
+  - Quick stats: "Deze Week" summary
+- **Membership Signups Page:**
+  - Table view: Name, Email, Phone, Package, Startdatum, Datum Aanmelding, Status
+  - Actions per row: "Bekijk Details" (modal with full info), "Markeer als Verwerkt"
+  - Filter: Show All / Te Verwerken / Verwerkt
+  - Search: By name, email, phone
+- **Tryout Requests Page:**
+  - Table view: Name, Phone, Email, Type (Fitness/Ladies/Kickboxing), Preferred Date/Time, Datum Aanvraag
+  - Action: "Markeer als Bevestigd"
+  - Search functionality
+- **No export needed:** Data will be manually entered in Mollie anyway
+
+**4. Contact Forms**
+- General contact form (name, email, phone, message)
+- Email delivery to Rashid
+- Simple success message
+
+**5. Responsive Design**
+- Mobile-first approach (most gym searchers on mobile)
+- Touch-friendly buttons and forms
+- Readable text sizes
+- Fast loading on mobile networks
+
+**6. Location & Directions**
+- Google Maps embed on contact page
+- Address with Schema markup
+- Parking information clearly displayed
+- Directions from landmarks (Action, train station)
+
+**7. Google Business Profile Integration**
+- Reviews display (embedded widget or curated testimonials)
+- Link to GBP for people to leave reviews
+- Schema markup for aggregate rating
+
+**8. Social Media Links**
+- Instagram: @fitcityculemborg (link only)
+- Instagram Ladies: @fitcity_ladiesonly (link only)
+- Facebook: https://www.facebook.com/p/Fitcity-Culemborg-100063646716139/ (link only)
+- TikTok: fitcity.culemborg (link only)
+- No feed embeds needed (Phase 2 consideration)
+
+**9. WhatsApp Integration (Contact Page Only)**
+- Phone: 06 46872274
+- "Chat op WhatsApp" button
+- Pre-filled message: "Hoi, ik heb interesse in een sportabonnement bij Fitcity Culemborg"
+- Opens WhatsApp app or web.whatsapp.com
+
+**10. Click-to-Call**
+- Phone number clickable on mobile: tel:+31646872274
+- Displayed on contact page, not overly prominent elsewhere
+
+**11. Privacy & Legal Pages**
+- Privacy Policy (AVG/GDPR compliant)
+- Algemene Voorwaarden (Terms & Conditions)
+- Cookie notice: NOT needed initially (no tracking/analytics)
+
+**12. SEO Foundation**
+- Page titles optimized for local keywords
+- Meta descriptions for all pages
+- Heading structure (H1, H2, H3 hierarchy)
+- Alt text for images (when added)
+- Schema.org markup:
+  - LocalBusiness
+  - Organization
+  - OpeningHoursSpecification
+  - AggregateRating (reviews)
+  - FAQPage
+- Location pages for secondary cities
+
+**13. Opening Hours Display**
+- Prominent on homepage
+- Full schedule on contact page
+- Structured data for Google
+
+### Nice-to-Have Features (Phase 2 - Post-Launch)
+
+**1. Admin Panel Enhancements**
+- Export signups to CSV
+- Email/SMS notifications toggle
+- Opening hours editor (update from admin panel)
+- Holiday/special hours banner system
+
+**2. Advanced Analytics**
+- Google Analytics 4 integration (requires cookie consent banner)
+- Conversion tracking (form submissions, button clicks)
+- Heatmaps (Hotjar or similar) to optimize UX
+
+**3. Content Management**
+- Blog/news section for gym updates
+- Success stories / transformation posts
+- Fitness tips / workout advice
+
+**4. Social Proof**
+- Live Instagram feed embed
+- Member testimonial submission form
+- Video testimonials
+
+**5. Member Portal**
+- Login system for existing members
+- View membership details
+- Update payment info
+- Freeze membership
+- Cancel membership
+
+**6. Enhanced Booking**
+- Class schedule display (all upcoming classes)
+- Live availability (spots remaining)
+- Confirmation email to user (not just Rashid)
+- Calendar invite generation
+
+**7. Multi-Language**
+- English toggle (for Eastern European members)
+- Dutch as default, simple language switcher
+
+**8. Payment Integration**
+- Mollie payment link for inschrijfkosten (€17 online payment)
+- Automatic Mollie subscription creation (if Rashid changes preference)
+
+**9. Live Chat**
+- WhatsApp widget that stays on all pages
+- Or live chat system for instant questions
+
+**10. Marketing Integrations**
+- Facebook Pixel (for future ad campaigns)
+- Google Ads conversion tracking
+- Email marketing integration (Mailchimp/SendGrid for automated welcome emails)
+
+## Integration Requirements
+
+### Google Business Profile
+- **Status:** Claimed and active (confirmed by client)
+- **Integration:**
+  - Embed reviews on homepage (widget or manual curation)
+  - Schema markup for aggregate rating display in search results
+  - "Leave a Review" link to GBP
+  - Map embed on contact page
+- **Maintenance:** Rashid manages photos, hours, posts directly in GBP
+
+### Social Media
+- **Instagram:** @fitcityculemborg + @fitcity_ladiesonly
+- **Facebook:** https://www.facebook.com/p/Fitcity-Culemborg-100063646716139/
+- **TikTok:** fitcity.culemborg
+- **Implementation:** Footer and contact page links only (no feed embeds Phase 1)
+
+### WhatsApp Business
+- **Number:** 06 46872274
+- **Implementation:** Contact page only, not floating widget
+- **Button:** "Chat op WhatsApp" with pre-filled message link
+- **URL Format:** `https://wa.me/31646872274?text=Hoi,%20ik%20heb%20interesse%20in%20een%20sportabonnement%20bij%20Fitcity%20Culemborg`
+
+### Email Notifications
+- **Service:** Simple transactional email (Resend, SendGrid, or Cloudflare Email Workers)
+- **Recipient:** itnerdnl@gmail.com (Rashid's email)
+- **Triggers:**
+  - New membership signup (includes all form data)
+  - New tryout request (includes preferred date/time)
+  - Contact form submission
+- **Format:** Plain text email with all details, no HTML needed
+
+### Mollie Integration
+- **Phase 1:** No direct integration (manual subscription creation)
+- **Admin Panel:** Displays SEPA details so Rashid can manually input to Mollie
+- **Phase 2 Consideration:** Direct Mollie API integration for automated subscription creation (if Rashid changes workflow preference)
+
+### No Integration Needed
+- **Setmore:** Not in use, ignore
+- **Analytics/Tracking:** Not needed Phase 1 (avoids cookie consent complexity)
+- **CRM:** None in use
+- **Email Marketing:** None in use
+- **Payment Gateway:** Not for online payment (Rashid prefers cash inschrijfkosten)
+
+## Technical Considerations
+
+### Performance Requirements
+- **Load Time Target:** <3 seconds on 3G connection
+- **Core Web Vitals:**
+  - LCP (Largest Contentful Paint): <2.5 seconds
+  - FID (First Input Delay): <100ms
+  - CLS (Cumulative Layout Shift): <0.1
+- **Image Optimization:**
+  - Lazy loading for below-the-fold images
+  - WebP format with fallbacks
+  - Responsive images (srcset)
+  - Placeholder containers initially (actual images added later)
+- **Code Optimization:**
+  - Minified CSS and JavaScript
+  - Critical CSS inline
+  - Defer non-critical JavaScript
+  - Tree-shaking unused code
+
+### Accessibility Requirements
+- **WCAG 2.1 AA Compliance:** Minimum standard
+- **Keyboard Navigation:** All interactive elements accessible via keyboard
+- **Screen Reader Support:** Semantic HTML, ARIA labels where needed
+- **Color Contrast:** Minimum 4.5:1 ratio for text (check yellow #FFE303 on white - may need adjustment)
+- **Focus Indicators:** Clear visible focus states
+- **Alt Text:** Descriptive for all images (when images added)
+- **Form Labels:** Properly associated with inputs
+- **Error Messages:** Clear and helpful
+
+### Browser & Device Support
+- **Modern Browsers:** Chrome, Firefox, Safari, Edge (last 2 versions)
+- **Mobile Browsers:** iOS Safari, Chrome Mobile, Samsung Internet
+- **Device Priorities:**
+  1. Mobile (320px - 768px) - Primary focus
+  2. Desktop (1024px+) - Secondary
+  3. Tablet (768px - 1024px) - Supported but not primary target
+- **Progressive Enhancement:** Core functionality works without JavaScript
+
+### Hosting & Deployment
+- **Platform:** Cloudflare Pages
+- **Domain:** fitcityculemborg.nl (existing)
+- **Staging:** fitcityculemborg.summitlab.dev (Yannick's Cloudflare for testing)
+- **SSL:** Included via Cloudflare (automatic)
+- **CDN:** Cloudflare global network (automatic)
+- **Deployment:** Git-based (push to main = deploy)
+
+**Admin Panel Hosting:**
+- **Protection:** Cloudflare Zero Trust (Access application)
+- **Path:** /admin (behind authentication)
+- **Database:** Cloudflare D1 (SQL database) or Workers KV (key-value store)
+- **Backend:** Cloudflare Workers (serverless functions)
+
+**DNS Configuration:**
+- Client will provide DNS access to point fitcityculemborg.nl to Cloudflare Pages
+- Yannick handles DNS setup
+
+### Data Storage
+- **Membership Signups:** Database (Cloudflare D1 recommended)
+- **Tryout Requests:** Same database
+- **Contact Form Submissions:** Database or email-only (TBD)
+- **Admin Users:** Simple authentication table (single admin user initially)
+
+**Schema Design:**
+```
+memberships table:
+- id (primary key)
+- created_at (timestamp)
+- status (enum: 'pending', 'processed')
+- membership_type (text)
+- start_date (date)
+- full_name (text)
+- email (text)
+- phone (text)
+- birthdate (date)
+- address_street (text)
+- address_number (text)
+- address_postal (text)
+- address_city (text)
+- iban (text, encrypted)
+- account_holder_name (text)
+- gdpr_consent (boolean)
+- privacy_consent (boolean)
+- terms_consent (boolean)
+
+tryouts table:
+- id (primary key)
+- created_at (timestamp)
+- status (enum: 'pending', 'confirmed')
+- type (enum: 'fitness', 'ladies_only', 'kickboxing')
+- full_name (text)
+- email (text)
+- phone (text)
+- preferred_date (date, nullable)
+- preferred_time (time, nullable)
+- selected_class (text, nullable for kickboxing)
+- interest_fitness (boolean)
+- interest_ladies (boolean)
+- message (text, nullable)
+
+contact_submissions table:
+- id (primary key)
+- created_at (timestamp)
+- full_name (text)
+- email (text)
+- phone (text)
+- message (text)
+```
+
+### Security Considerations
+- **HTTPS:** Enforced (Cloudflare automatic)
+- **Form Validation:** Server-side + client-side
+- **IBAN Encryption:** Sensitive data encrypted at rest
+- **Admin Access:** Cloudflare Zero Trust authentication
+- **Rate Limiting:** Prevent form spam (Cloudflare Workers built-in)
+- **CSRF Protection:** Token-based for forms
+- **XSS Prevention:** Sanitize all user inputs
+- **SQL Injection Prevention:** Parameterized queries
+- **GDPR Compliance:** Privacy policy, consent checkboxes, right to deletion
+
+### Cookie Policy
+- **Phase 1:** NO cookies/tracking (avoids need for consent banner)
+- **Phase 2:** If analytics added, implement compliant cookie consent (Cookiebot or similar)
+- **Admin Panel:** Session cookie for authentication (essential cookie, no consent needed)
+
+## Success Criteria
+
+### Launch Definition
+**Version 1.0 is complete when:**
+1. All core pages live and content complete
+2. Membership signup form fully functional with email notifications
+3. Tryout booking system working for fitness and kickboxing
+4. Admin panel accessible and showing data
+5. Mobile-responsive across all pages
+6. Google Business Profile integrated (reviews, map)
+7. Domain pointed and SSL active
+8. All legal pages present (Privacy, Terms)
+9. SEO foundation in place (meta tags, structured data)
+10. Client approval given
+
+### Performance Metrics
+
+**Primary Success Metric:**
+- **Any membership signup through website = WIN**
+- Broader goal: 10% membership growth over 6 months
+
+**Measurable Conversions (without analytics initially):**
+- Membership signups submitted (count in admin panel)
+- Tryout requests submitted (count in admin panel)
+- Contact form submissions (count in admin panel)
+
+**Qualitative Indicators:**
+- Phone calls mention "I saw your website"
+- Rashid reports easier onboarding process
+- Reduced repetitive questions (FAQ answers them)
+- Professional appearance increases trust
+
+**SEO Goals (3-6 months post-launch):**
+- Rank page 1 for "sportschool Culemborg"
+- Rank page 1 for "fitness Culemborg"
+- Rank page 1 for "kickboksen Culemborg"
+- Rank page 1 for "ladies only sportschool Culemborg"
+- Increase organic traffic vs current site
+- Google Business Profile views increase
+
+**User Experience Goals:**
+- <3 second load time achieved
+- <5% form abandonment rate
+- Mobile bounce rate <60%
+- Average session duration >2 minutes
+
+### Benchmarks
+**Competitor Website Analysis:**
+- Circle Fit: Modern design, clear booking, fast loading - MATCH OR BEAT
+- Basic-Fit: Visual membership cards, pricing clarity - IMPLEMENT SIMILAR
+- Healthcenter Culemborg: More features but slower, cluttered - BEAT on simplicity and speed
+
+**Internal Goals:**
+- Better than current site (not hard - current has lorem ipsum)
+- Professional enough to compete with regional chains
+- Simple enough Rashid can manage (minimal maintenance)
+
+### What Would Make Rashid Say "This Website Is Worth It"
+1. People completing membership forms online (reduces his paperwork)
+2. Phone calls are more qualified (people already know prices, hours, what to expect)
+3. Ladies-only section getting more interest (since it's expanding)
+4. Website looks professional (proud to share link)
+5. Doesn't require constant updates from him
+6. New members mention they signed up because of website
+
+## Timeline & Constraints
+
+### Project Timeline
+- **Target:** ASAP (as soon as possible)
+- **Realistic:** 2-4 weeks from planning to launch
+  - Week 1: Planning (OpusPlan creates technical plan)
+  - Week 2: Development Phase 1 (Sonnet builds foundation, pages, forms)
+  - Week 3: Development Phase 2 (admin panel, integrations, polish)
+  - Week 4: Testing, revisions, DNS setup, launch
+
+**Milestones:**
+1. Technical plan approved (end of Week 1)
+2. All pages scaffolded with placeholder content (mid Week 2)
+3. Forms and admin panel functional (end Week 2)
+4. Copy finalized and integrated (mid Week 3)
+5. Client review and feedback (end Week 3)
+6. Revisions and final polish (early Week 4)
+7. DNS cutover and launch (end Week 4)
+
+### Budget Considerations
+- Development: Fixed scope (features defined above)
+- Hosting: Free (Cloudflare Pages)
+- Domain: Existing (fitcityculemborg.nl)
+- Services: Minimal cost (email service ~$10/month)
+- Photos: Client will add later (placeholders for now)
+- Copywriting: Included (drafted by developer, reviewed by client)
+
+### Resource Availability
+
+**Client Side (Rashid):**
+- Minimal involvement needed (per his preference)
+- Review and approve final copy (quick verbal approval)
+- Provide MDT Break Out details when ready
+- DNS access for domain pointing
+- Decision making: Via Yannick as intermediary
+
+**Yannick's Role:**
+- Primary contact and decision maker
+- Content review and approval
+- Photo upload post-launch
+- Testing and QA
+- Handles communication with Rashid
+
+**Content Delivery:**
+- Copy: Drafted by developer based on discovery (Yannick reviews)
+- Photos: Placeholders initially, Yannick adds later
+- Pricing: Already provided
+- Legal text: Standard templates customized for Fitcity
+
+**Technical Access:**
+- Domain DNS: Client will provide
+- Email account: itnerdnl@gmail.com (already known)
+- Social media: Links only, no API access needed
+- Google Business Profile: No API integration needed
+
+## High-Priority Focus Areas
+
+These critical success factors should guide all technical and design decisions:
+
+### 1. Conversion-Focused Design
+**Why:** Primary goal is membership signups
+**How:**
+- Clear "Word Lid" CTA on every page
+- Visual membership cards (like Circle Fit) not dropdowns
+- Remove friction from signup process
+- Trust signals prominently placed (reviews, equipment brands)
+- Mobile-optimized forms (large tap targets, minimal typing)
+
+### 2. Local SEO Dominance
+**Why:** 80% of business comes from Culemborg area searches
+**How:**
+- Target "sportschool Culemborg" + variations
+- Location pages for secondary cities
+- Google Business Profile integration
+- LocalBusiness Schema markup
+- Location mentioned in every page title/meta
+- Opening hours structured data
+
+### 3. Ladies-Only Section Prominence
+**Why:** 25% of members, currently expanding, unique differentiator
+**How:**
+- Featured section on homepage
+- Dedicated page with photos
+- Clear in navigation
+- Separate tryout flow
+- Testimonials emphasizing privacy/comfort
+
+### 4. Mobile-First Experience
+**Why:** Most gym searchers browse on mobile
+**How:**
+- Design for mobile first, scale up to desktop
+- Fast loading (<3 seconds on 3G)
+- Touch-friendly buttons (min 44x44px)
+- Readable text (min 16px)
+- Forms optimized for mobile keyboards
+
+### 5. Admin Panel Simplicity
+**Why:** Rashid wants minimal management, quick visibility of signups
+**How:**
+- Dashboard shows counts at a glance
+- Mark as "processed" with one click
+- All SEPA details visible for Mollie entry
+- No complex features needed
+- Mobile-accessible admin (tablet/phone)
+
+### 6. Legal SEPA Compliance
+**Why:** Collecting IBAN requires proper authorization
+**How:**
+- Full SEPA mandaat text in Dutch
+- Required checkboxes for consent
+- Privacy policy and terms & conditions pages
+- Data encryption for sensitive info
+- Clear language about recurring payments
+
+## Constraints & Assumptions
+
+### Known Constraints
+1. **Owner Involvement:** Rashid prefers minimal public profile and limited time for reviews
+2. **Payment Process:** Must keep manual Mollie subscription creation (owner preference for control)
+3. **Budget:** Very cost-conscious, wants free/low-cost solutions
+4. **Photography:** Current photos are placeholder quality, better ones post-launch
+5. **Staffing:** Lean operation, no dedicated marketing/web person
+6. **Domain:** Must use existing fitcityculemborg.nl (brand recognition)
+
+### Assumptions to Validate
+1. **MDT Break Out:** Details coming from owner soon (page can be added after launch if needed)
+2. **Email Access:** Assuming itnerdnl@gmail.com can receive form notifications reliably
+3. **Cloudflare Access:** Yannick can set up DNS and Cloudflare Pages
+4. **Rashid's Tech Comfort:** Admin panel needs to be very simple (TBD how tech-savvy)
+5. **Class Schedule:** Kickboxing classes exist on regular schedule (need specific times for booking system)
+6. **Google Business Profile:** Assuming current data is accurate and Rashid maintains it
+7. **Form Volume:** Expecting moderate traffic, not enterprise-scale (simple database sufficient)
+
+### Risks to Mitigate
+1. **DNS Transfer Delays:** Plan for 24-48 hours propagation
+2. **Content Gaps:** Use placeholders where client info pending, mark for Phase 2
+3. **Photo Quality:** Design works with placeholders, easily swap in real photos later
+4. **Legal Text:** Use vetted templates for SEPA/privacy/terms, but may need legal review
+5. **Email Deliverability:** Test notification emails thoroughly, have backup (WhatsApp notification)
+6. **Form Spam:** Implement rate limiting and basic honeypot protection
+7. **Admin Panel Access:** If Cloudflare Zero Trust setup delays, have simple password fallback
+
+## Next Steps for OpusPlan
+
+Your first task is to:
+
+### 1. Read the Best Practices Document
+- **File:** `/mnt/user-data/uploads/web_dev_best_practices_comprehensive.md`
+- Understand technical implementation patterns
+- Review design principles and development guidelines
+- Study modern web best practices
+
+### 2. Analyze This Project Brief Thoroughly
+- Understand client-specific requirements
+- Identify technical approach for their needs
+- Consider service area and local SEO strategy
+- Note constraints and preferences
+
+### 3. Create a Comprehensive Technical Plan as a GitHub Issue
+
+The issue should include:
+
+**A. Recommended Tech Stack**
+- Frontend framework/approach (vanilla, React, Astro, etc.) with rationale
+- Styling solution (Tailwind, CSS Modules, etc.)
+- Form handling approach
+- Database choice (Cloudflare D1, KV, etc.)
+- Backend/API approach (Cloudflare Workers, etc.)
+- Email service (Resend, SendGrid, etc.)
+- Why these choices fit Fitcity's needs
+
+**B. Architecture and File Structure**
+- Project organization
+- Component structure (if using components)
+- Page routing approach
+- Asset management
+- Environment variables and config
+
+**C. Development Phases and Milestones**
+
+**Phase 1: Foundation (Session 1-2)**
+- Complete architecture setup
+- All pages scaffolded with placeholder content
+- Navigation and routing functional
+- Basic styling with brand colors
+- Forms created (not yet functional)
+- Admin panel structure
+- Core functionality: membership packages display, pricing page
+
+**Phase 2: Forms & Backend (Session 2-3)**
+- Database schema implemented
+- Membership signup form functional
+- Tryout booking system (both flows)
+- Contact form
+- Email notifications
+- Form validation
+- SEPA mandaat integration
+
+**Phase 3: Admin Panel (Session 3-4)**
+- Cloudflare Zero Trust setup
+- Dashboard view
+- Membership signups table
+- Tryout requests table
+- Mark as processed functionality
+- Simple authentication
+
+**Phase 4: Content & Polish (Session 4-5)**
+- All copywriting integrated
+- FAQ section with accordion
+- Google reviews integration
+- SEO optimization (meta tags, structured data)
+- Accessibility audit
+- Performance optimization
+
+**Phase 5: Testing & Launch (Session 5-6)**
+- Cross-browser testing
+- Mobile responsiveness check
+- Form submission testing
+- Admin panel testing
+- DNS setup and cutover
+- Launch!
+
+**D. Above-the-Fold Strategy**
+- Hero section design applying AIDA framework
+- Primary CTA placement and design
+- Value propositions arrangement
+- Trust signals integration
+- Mobile vs desktop approach
+
+**E. Location Page Implementation**
+- Template for location pages
+- SEO optimization per page
+- Internal linking strategy
+- Schema markup approach
+
+**F. FAQ Schema and Structure**
+- Expandable accordion design
+- Per-page FAQ integration
+- FAQPage schema markup
+- Question prioritization
+
+**G. Design Approach**
+- Visual hierarchy matching "Moderately Expressive" style
+- Yellow #FFE303 usage (accent, not overwhelming)
+- Typography choices
+- Button and form styling
+- Card design for membership selection
+- Mobile responsive breakpoints
+
+**H. Performance Optimization Plan**
+- Image optimization strategy (WebP, lazy loading)
+- Code splitting and chunking
+- Critical CSS approach
+- Caching strategy
+- CDN configuration (Cloudflare)
+- Target: <3 second load on 3G
+
+**I. SEO Implementation**
+- Title and meta description templates
+- Heading structure guidelines
+- Schema.org types to implement:
+  - LocalBusiness
+  - OpeningHoursSpecification
+  - AggregateRating
+  - FAQPage
+  - Organization
+- Internal linking strategy
+- XML sitemap generation
+- Robots.txt configuration
+
+**J. Integration Roadmap**
+
+**Phase 1 (Launch):**
+- Email notifications (form submissions)
+- Google Maps embed
+- Google Business Profile link
+- Social media links
+- WhatsApp Business link
+- Click-to-call
+
+**Phase 2 (Post-Launch):**
+- Google Reviews widget/API
+- Analytics (with cookie consent)
+- Live chat/floating WhatsApp
+- Mollie API (if client changes preference)
+- Instagram feed embed
+
+**K. Testing Strategy**
+- Browser/device testing matrix
+- Form submission testing scenarios
+- Admin panel user acceptance testing
+- Performance benchmarks
+- Accessibility audit checklist
+- SEO validation
+
+**L. Key Technical Decisions and Trade-Offs**
+
+Address and justify:
+1. **Framework choice** - Why this approach for a gym site?
+2. **Database solution** - D1 vs KV vs other, pros/cons
+3. **Admin authentication** - Cloudflare Access vs custom, security considerations
+4. **Email service** - Which provider, why, cost
+5. **Form handling** - Client-side vs server-side validation approach
+6. **Image strategy** - How to handle placeholders, future photo uploads
+7. **SEO vs Performance** - Any trade-offs, how to optimize both
+8. **Mobile-first** - Breakpoint strategy, progressive enhancement
+
+### 4. Plan for Session 1 to Maximize Context
+First session should establish complete foundation:
+- Full site architecture
+- All pages created (even with placeholders)
+- Navigation system
+- Basic styling and layout
+- Component library if using components
+- Form structures (even if not yet functional)
+
+This allows subsequent sessions to build incrementally without context loss.
+
+### 5. Identify What Comes in Later Sessions
+- Form backend integration (needs database setup)
+- Admin panel (needs authentication setup)
+- Email notifications (needs service config)
+- Final copywriting (reviewed and approved)
+- Advanced features from Phase 2
+
+### 6. Deployment Strategy
+- Git repository setup
+- Cloudflare Pages connection
+- Staging environment (summitlab.dev)
+- Production deployment process
+- DNS cutover plan
+
+## Repository Information
+- **GitHub Repo:** To be created by OpusPlan
+- **Project Directory:** To be determined
+- **Staging URL:** fitcityculemborg.summitlab.dev
+- **Production URL:** fitcityculemborg.nl
+
+## Brand Assets Location
+- **Logo:** /mnt/user-data/uploads/fitcity-logo.png
+- **Favicon:** /mnt/user-data/uploads/favicon.png
+- **Primary Brand Color:** #FFE303
+
+---
+
+**Generated:** January 2, 2026
+**Discovery Conducted By:** Claude Sonnet 4.5
+**Technical Reference:** web_dev_best_practices_comprehensive.md
+**Client:** Fitcity Culemborg (Rashid Shakar, owner)
+**Project Goal:** Convert website visitors to gym members, achieve 10% membership growth
+**Success Metric:** Any membership signup through new website = WIN

@@ -93,8 +93,17 @@ export function getStatusText(): { text: string; isOpen: boolean } {
   const isOpen = isGymOpen();
 
   if (isOpen) {
+    // Show closing time when open
+    const now = new Date();
+    const nlDate = new Date(
+      now.toLocaleString('en-US', { timeZone: 'Europe/Amsterdam' })
+    );
+    const dayOfWeek = nlDate.getDay();
+    const todayHours = openingHoursDetailed[dayOfWeek];
+    const closingTime = todayHours?.close ?? '';
+
     return {
-      text: 'OPEN NU',
+      text: closingTime ? `GEOPEND TOT ${closingTime}` : 'GEOPEND',
       isOpen: true,
     };
   }

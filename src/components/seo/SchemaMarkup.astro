@@ -1,11 +1,12 @@
 ---
+import { openingHoursDetailed } from '@data/hours';
+
 interface Props {
   type?: 'homepage' | 'page';
 }
 
 const { type = 'page' } = Astro.props;
 
-// Business information
 const businessInfo = {
   name: 'FitCity Culemborg',
   description: 'De meest betaalbare sportschool van Culemborg met industriële vibe. Ladies Only vanaf €20,50, Fitness vanaf €24,50, Kickboksen vanaf €19,95 per maand.',
@@ -23,16 +24,19 @@ const businessInfo = {
     longitude: 5.2336
   },
   rating: {
-    value: 4.6,
-    count: 27
+    value: 4.8,
+    count: 24
   },
-  priceRange: '€€',
-  openingHours: [
-    'Mo-Fr 08:30-22:00',
-    'Sa 09:00-16:00',
-    'Su 09:30-16:00'
-  ]
+  priceRange: '€€'
 };
+
+const dayMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const openingHoursSpec = Object.entries(openingHoursDetailed).map(([day, hours]) => ({
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: dayMap[Number(day)],
+  opens: hours.open,
+  closes: hours.close
+}));
 
 // LocalBusiness Schema
 const localBusinessSchema = {
@@ -57,26 +61,7 @@ const localBusinessSchema = {
     latitude: businessInfo.coordinates.latitude,
     longitude: businessInfo.coordinates.longitude
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:30',
-      closes: '22:00'
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '09:00',
-      closes: '16:00'
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Sunday',
-      opens: '09:30',
-      closes: '16:00'
-    }
-  ],
+  openingHoursSpecification: openingHoursSpec,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: businessInfo.rating.value,
@@ -109,7 +94,8 @@ const localBusinessSchema = {
   sameAs: [
     'https://www.facebook.com/p/Fitcity-Culemborg-100063646716139/',
     'https://www.instagram.com/fitcityculemborg',
-    'https://www.instagram.com/fitcity_ladiesonly'
+    'https://www.instagram.com/fitcity_ladiesonly',
+    'https://www.google.com/maps/place/FitCity+Culemborg/'
   ]
 };
 

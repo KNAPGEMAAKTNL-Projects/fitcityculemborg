@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ContactForm from '@components/forms/ContactForm.astro';
 import SectionHeading from '@components/ui/SectionHeading.astro';
+import OpeningHoursSchema from '@components/seo/OpeningHoursSchema.astro';
 
 import { openingHours } from '@data/hours';
 ---
@@ -31,7 +32,7 @@ import { openingHours } from '@data/hours';
                 height="100%"
                 style="border:0;"
                 allowfullscreen=""
-                loading="lazy"
+                loading="eager"
                 referrerpolicy="no-referrer-when-downgrade"
                 title="FitCity Culemborg locatie op Google Maps"
               ></iframe>
@@ -82,6 +83,33 @@ import { openingHours } from '@data/hours';
                   </a>
                 </div>
               </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.486 2 2 6.262 2 11.5S6.486 21 12 21s10-4.262 10-9.5S17.514 2 12 2zm0 16.5c-3.98 0-7.2-3.015-7.2-6.5S8.02 5.5 12 5.5 19.2 8.515 19.2 12 15.98 18.5 12 18.5z"/><path d="M12 7.75c-2.347 0-4.25 1.795-4.25 4 0 1.73 1.063 3.2 2.65 3.79l-1.208 1.2 1.416 1.42 2.022-2.01c2.343-.063 4.22-1.842 4.22-4.4 0-2.205-1.903-4-4.25-4zm0 6c-1.104 0-2-.84-2-1.875s.896-1.875 2-1.875 2 .84 2 1.875-.896 1.875-2 1.875z"/>
+                </svg>
+                <div>
+                  <p class="font-semibold">Google Reviews</p>
+                  <a
+                    href="https://www.google.com/maps/place/FitCity+Culemborg/"
+                    class="text-text-muted hover:text-primary transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Bekijk op Google
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <a
+                href="https://wa.me/31646872274?text=Hoi%2C%20ik%20heb%20een%20vraag%20over%20FitCity"
+                class="btn-primary inline-flex items-center gap-2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chat op WhatsApp
+              </a>
             </div>
           </div>
 
@@ -112,4 +140,7 @@ import { openingHours } from '@data/hours';
       </div>
     </div>
   </section>
+
+  <!-- Opening hours structured data -->
+  <OpeningHoursSchema />
 </BaseLayout>

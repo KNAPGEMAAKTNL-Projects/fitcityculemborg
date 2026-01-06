@@ -1,0 +1,23 @@
+---
+import { openingHoursDetailed } from '@data/hours';
+
+const businessUrl = 'https://fitcityculemborg.nl';
+const dayMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const openingHoursSpec = Object.entries(openingHoursDetailed).map(([day, hours]) => ({
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: dayMap[Number(day)],
+  opens: hours.open,
+  closes: hours.close
+}));
+
+const openingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${businessUrl}#business`,
+  name: 'FitCity Culemborg',
+  openingHoursSpecification: openingHoursSpec
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(openingSchema)} />

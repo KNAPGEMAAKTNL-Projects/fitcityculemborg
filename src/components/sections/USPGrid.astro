@@ -26,25 +26,37 @@ const { usps } = Astro.props;
     <p class="text-center text-text-muted text-sm mb-8 uppercase tracking-wider">
       Premium Apparatuur
     </p>
-    <div class="grid grid-cols-3 gap-8 md:gap-12 items-center">
+    <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center max-w-5xl mx-auto">
       <!-- Nautilus -->
-      <div class="brand-logo-container">
-        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
-          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Nautilus</span>
+      <div class="brand-logo-container w-full md:flex-1">
+        <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <img
+            src="/images/nautilus-logo.png"
+            alt="Nautilus"
+            class="w-full h-auto max-h-16 md:max-h-20 object-contain"
+          />
         </div>
       </div>
 
       <!-- Technogym -->
-      <div class="brand-logo-container">
-        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
-          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Technogym</span>
+      <div class="brand-logo-container w-full md:flex-1">
+        <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <img
+            src="/images/technogym-logo.png"
+            alt="Technogym"
+            class="w-full h-auto max-h-16 md:max-h-20 object-contain"
+          />
         </div>
       </div>
 
-      <!-- Sports Art -->
-      <div class="brand-logo-container">
-        <div class="brand-logo bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
-          <span class="font-display text-xl md:text-2xl text-white/70 uppercase">Sports Art</span>
+      <!-- SportsArt -->
+      <div class="brand-logo-container w-full md:flex-1">
+        <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
+          <img
+            src="/images/sportsart-logo.png"
+            alt="SportsArt"
+            class="w-full h-auto max-h-16 md:max-h-20 object-contain"
+          />
         </div>
       </div>
     </div>
