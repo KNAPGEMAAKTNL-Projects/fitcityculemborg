@@ -10,7 +10,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: 'Kan ik op elk moment opzeggen?',
-    answer: 'Bij de Flex abonnementen kun je opzeggen met 1 kalendermaand opzegtermijn. Bij contracten geldt de opzegtermijn na afloop van het contract.'
+    answer: 'Bij de Flex abonnementen kun je opzeggen met 1 kalendermaand opzegtermijn. Bij de vaste contracten geldt na afloop van de contractperiode ook een opzegtermijn van 1 kalendermaand.'
   },
   {
     question: 'Is er altijd personeel aanwezig?',
@@ -22,7 +22,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: 'Kan ik een proefles doen?',
-    answer: 'Ja, je kunt een dagpas kopen voor €7,00 om de sportschool te proberen. Neem contact met ons op voor meer informatie.'
+    answer: 'Zeker! Je bent altijd welkom voor een gratis proefles om de sfeer te proeven en de sportschool uit te proberen. Kom gerust eens langs!'
   },
   {
     question: 'Wat zijn de openingstijden?',

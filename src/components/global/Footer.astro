@@ -1,12 +1,13 @@
 ---
 import { openingHours } from '@data/hours';
+import { locations } from '@data/locations';
 ---
 
 <footer class="bg-bg-secondary border-t border-white/10 py-12">
   <div class="max-w-7xl mx-auto px-4 md:px-6">
-    <div class="grid md:grid-cols-4 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- About -->
-      <div>
+      <div class="lg:col-span-1">
         <h3 class="font-display text-xl mb-4">FITCITY CULEMBORG</h3>
         <p class="text-text-muted text-sm">
           De meest betaalbare sportschool van Culemborg waar je echt wilt trainen.
@@ -51,6 +52,20 @@ import { openingHours } from '@data/hours';
         </ul>
       </div>
 
+      <!-- Onze Regio -->
+      <div>
+        <h3 class="font-display text-lg mb-4">ONZE REGIO</h3>
+        <ul class="space-y-2 text-sm">
+          {locations.map(loc => (
+            <li>
+              <a href={`/fitness-${loc.slug}`} class="text-text-muted hover:text-primary transition-colors">
+                Fitness {loc.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <!-- Quick Links -->
       <div>
         <h3 class="font-display text-lg mb-4">LINKS</h3>
@@ -63,18 +78,19 @@ import { openingHours } from '@data/hours';
       </div>
 
       <!-- Legal -->
-      <div>
-        <h3 class="font-display text-lg mb-4">JURIDISCH</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/privacy" class="text-text-muted hover:text-primary transition-colors">Privacy Policy</a></li>
-          <li><a href="/terms" class="text-text-muted hover:text-primary transition-colors">Algemene Voorwaarden</a></li>
-          <li><a href="/sepa" class="text-text-muted hover:text-primary transition-colors">SEPA Incasso</a></li>
-        </ul>
-      </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-text-muted">
-      <p>&copy; {new Date().getFullYear()} FitCity Culemborg. Alle rechten voorbehouden.</p>
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
+      <div class="flex flex-col md:flex-row items-center gap-1 md:gap-4">
+        <span>&copy; {new Date().getFullYear()} FitCity Culemborg.</span>
+        <span>Built by <a href="https://summitlab.dev" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Summit Labs</a></span>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+        <a href="/privacy" class="hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-primary transition-colors">Algemene Voorwaarden</a>
+        <a href="/sitemap" class="hover:text-primary transition-colors">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>

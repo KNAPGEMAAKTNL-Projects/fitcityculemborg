@@ -3,12 +3,13 @@ import { openingHoursDetailed } from '@data/hours';
 
 interface Props {
   type?: 'homepage' | 'page';
+  cityName?: string;
 }
 
-const { type = 'page' } = Astro.props;
+const { type = 'page', cityName } = Astro.props;
 
 const businessInfo = {
-  name: 'FitCity Culemborg',
+  name: cityName ? `FitCity ${cityName}` : 'FitCity Culemborg',
   description: 'De meest betaalbare sportschool van Culemborg met industriële vibe. Ladies Only vanaf €20,50, Fitness vanaf €24,50, Kickboksen vanaf €19,95 per maand.',
   address: {
     street: 'Houtweg 8',
@@ -52,7 +53,7 @@ const localBusinessSchema = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: businessInfo.address.street,
-    addressLocality: businessInfo.address.city,
+    addressLocality: businessInfo.address.city, // Address remains in Culemborg
     postalCode: businessInfo.address.postalCode,
     addressCountry: businessInfo.address.country
   },
@@ -104,7 +105,7 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${businessInfo.url}#organization`,
-  name: businessInfo.name,
+  name: 'FitCity Culemborg',
   url: businessInfo.url,
   logo: `${businessInfo.url}/images/fitcity-logov2.png`,
   contactPoint: {
@@ -127,7 +128,7 @@ const websiteSchema = type === 'homepage' ? {
   '@type': 'WebSite',
   '@id': `${businessInfo.url}#website`,
   url: businessInfo.url,
-  name: businessInfo.name,
+  name: 'FitCity Culemborg',
   description: businessInfo.description,
   publisher: {
     '@id': `${businessInfo.url}#organization`

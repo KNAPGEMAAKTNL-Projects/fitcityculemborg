@@ -1,0 +1,135 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroVideo from '@components/sections/HeroVideo.astro';
+import PricingGrid from '@components/sections/PricingGrid.astro';
+import USPGrid from '@components/sections/USPGrid.astro';
+import FAQ from '@components/sections/FAQ.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Container from '@components/ui/Container.astro';
+import FAQSchema from '@components/seo/FAQSchema.astro';
+import { locations } from '@data/locations';
+import { uspData } from '@data/usps';
+import { faqData } from '@data/faq';
+
+export async function getStaticPaths() {
+  return locations.map((location) => ({
+    params: { city: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+const otherLocations = locations.filter(l => l.slug !== location.slug);
+
+// Combine global FAQs with local ones for this page
+const combinedFaqs = [...location.localFaqs, ...faqData.slice(0, 4)];
+---
+
+<BaseLayout
+  title={location.seoTitle}
+  description={location.seoDescription}
+  cityName={location.name}
+>
+  <HeroVideo
+    videoSrc="/videos/fitcity-hero.mp4"
+    headline={location.headline}
+    subheadline={location.subheadline}
+    showGoogleReviews={true}
+    googleRating={4.6}
+    googleReviewCount={27}
+    ctaText="WORD NU LID"
+    ctaLink="/signup"
+    secondaryCtaText="BEKIJK PRIJZEN"
+    secondaryCtaLink="#pricing"
+  />
+
+  <section class="py-16 md:py-24 bg-bg-secondary border-y border-white/5">
+    <Container>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-display mb-6 tracking-tight">
+            {location.introTitle}
+          </h2>
+          <p class="text-text-muted text-lg mb-6 leading-relaxed">
+            {location.introText}
+          </p>
+          <div class="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 border border-primary/20 text-primary font-semibold uppercase tracking-wider text-sm">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {location.distanceText}
+          </div>
+        </div>
+        <div class="bg-bg-main p-8 border border-white/10">
+          <h3 class="font-display text-2xl mb-4">ONZE FACILITEITEN</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">✓</span>
+              <span>Degelijke fitnessapparatuur (Technogym & Nautilus)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">✓</span>
+              <span>Aparte Ladies Only zone voor extra privacy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">✓</span>
+              <span>Professionele kickboksruimte en lessen</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">✓</span>
+              <span>Ruime openingstijden (vanaf 08:30 uur)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section id="pricing" class="py-16 md:py-24 bg-bg-main">
+    <Container>
+      <SectionHeading
+        title="Prijzen"
+      />
+    </Container>
+    <PricingGrid
+      highlightedId="smart-deal"
+    />
+  </section>
+
+  <section id="usps" class="py-16 md:py-24 bg-bg-secondary">
+    <Container>
+      <SectionHeading
+        title="Waarom FitCity?"
+        subtitle="De beste keuze voor jouw fitness journey"
+      />
+    </Container>
+    <USPGrid usps={uspData} />
+  </section>
+
+  <section id="map" class="py-16 md:py-24 bg-bg-main">
+    <Container>
+      <SectionHeading
+        title="Bezoek onze Gym"
+      />
+      <div class="aspect-video w-full bg-bg-secondary rounded-none overflow-hidden border-2 border-white/10">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d17240.785579589494!2d5.223561!3d51.946544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c65e27bc07ccf3%3A0x9357ad3e9a0a100a!2sFitcity%20Culemborg!5e1!3m2!1snl!2snl!4v1767787547935!5m2!1snl!2snl"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="eager"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="FitCity Culemborg locatie op Google Maps"
+        ></iframe>
+      </div>
+    </Container>
+  </section>
+
+  <section id="faq" class="py-16 md:py-24 bg-bg-secondary">
+    <FAQ items={combinedFaqs} />
+  </section>
+
+  <FAQSchema items={combinedFaqs} />
+</BaseLayout>

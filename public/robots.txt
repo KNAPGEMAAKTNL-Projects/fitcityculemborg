@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://fitcityculemborg.nl/sitemap.xml
+Sitemap: https://fitcityculemborg.nl/sitemap-index.xml

@@ -32,31 +32,33 @@ const {
 </style>
 
 <script>
-  // Only show sticky bar when hero CTA is out of view
+  // Only show sticky bar when the target section (Vibe or Hero) is scrolled past
   document.addEventListener('DOMContentLoaded', () => {
     const stickyBar = document.getElementById('sticky-bottom-bar');
-    const heroSection = document.getElementById('hero-section');
+    // Prefer vibe-section, fallback to hero-section
+    const targetSection = document.getElementById('vibe-section') || document.getElementById('hero-section');
 
-    if (!stickyBar || !heroSection) return;
+    if (!stickyBar || !targetSection) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Hero is in view - hide sticky bar
-            stickyBar.style.transform = 'translateY(100%)';
-          } else {
-            // Hero is out of view - show sticky bar
+          // Show only if we've scrolled past the element (it's above viewport)
+          // entry.boundingClientRect.top < 0 means the top of the element is above the viewport top
+          // !entry.isIntersecting means it's not currently visible
+          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
             stickyBar.style.transform = 'translateY(0)';
+          } else {
+            stickyBar.style.transform = 'translateY(100%)';
           }
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0,
         rootMargin: '0px'
       }
     );
 
-    observer.observe(heroSection);
+    observer.observe(targetSection);
   });
 </script>

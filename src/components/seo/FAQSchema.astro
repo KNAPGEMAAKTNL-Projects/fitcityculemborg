@@ -1,11 +1,17 @@
 ---
-import { faqData } from '@data/faq';
+import { faqData, type FAQItem } from '@data/faq';
+
+interface Props {
+  items?: FAQItem[];
+}
+
+const { items = faqData } = Astro.props;
 
 // Convert FAQ data to Schema.org format
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqData.map(faq => ({
+  mainEntity: items.map(faq => ({
     '@type': 'Question',
     name: faq.question,
     acceptedAnswer: {

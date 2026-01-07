@@ -85,12 +85,12 @@ Build a high-performance "Conversion Engine" that uses raw industrial aesthetics
 - [x] Terms & Conditions page (terms.astro)
 
 #### 4. SEO & Location Pages
-- [ ] /fitness-culemborg (main SEO landing page)
-- [ ] /fitness-beusichem
-- [ ] /fitness-buren
-- [ ] /fitness-tricht
-- [ ] /fitness-buurmalsen
-- [ ] Each with LocalBusiness schema, local keywords, internal linking
+- [x] /fitness-culemborg (main SEO landing page)
+- [x] /fitness-beusichem
+- [x] /fitness-buren
+- [x] /fitness-tricht
+- [x] /fitness-buurmalsen
+- [x] Each with LocalBusiness schema, local keywords, internal linking
 
 ### Phase 2: Data & Content
 
@@ -120,33 +120,20 @@ Build a high-performance "Conversion Engine" that uses raw industrial aesthetics
 #### 8. Components - Forms
 - [x] ContactForm.astro (Web3Forms integration)
 - [ ] MembershipSignupForm.astro (multi-step: membership selection → personal details → SEPA)
-- [ ] TryoutBookingForm.astro (fitness/ladies with date/time picker)
-- [ ] KickboxingTrialForm.astro (class selection dropdown)
 
 ### Phase 3: Forms & Backend
 
 #### 9. Form Systems
 - [ ] **Membership Signup Flow:**
-  - [ ] Visual membership card selection (not dropdown)
-  - [ ] Step 1: Choose membership (cards for all packages)
-  - [ ] Step 2: Personal details (name, email, phone, birthdate, address, start date)
-  - [ ] Step 3: SEPA payment details (IBAN, account holder, mandaat text)
-  - [ ] Required checkboxes (SEPA consent, privacy policy, terms)
-  - [ ] Form validation (IBAN format, email, required fields)
+  - [x] Visual membership card selection (not dropdown)
+  - [x] Step 1: Choose membership (cards for all packages)
+  - [x] Step 2: Personal details (name, email, phone, birthdate, address, start date)
+  - [x] Step 3: SEPA payment details (IBAN, account holder, mandaat text)
+  - [x] Required checkboxes (SEPA consent, privacy policy, terms)
+  - [x] Form validation (IBAN format, email, required fields)
   - [ ] Success page redirect
   - [ ] Email notification to Rashid
-- [ ] **Tryout Booking (Fitness/Ladies):**
-  - [ ] Form fields: name, phone, email
-  - [ ] Date picker (preferred date)
-  - [ ] Time picker (preferred time)
-  - [ ] Interest checkboxes (Fitness / Ladies Only / Both)
-  - [ ] Message/questions field
-  - [ ] Email notification
-- [ ] **Tryout Booking (Kickboxing):**
-  - [ ] Class selection dropdown (upcoming classes for next 2 weeks)
-  - [ ] Name, phone, email
-  - [ ] Message field
-  - [ ] Email notification
+
 
 #### 10. Backend/Database (Future Phase)
 - [ ] Database schema (Cloudflare D1 or similar)
@@ -166,7 +153,7 @@ Build a high-performance "Conversion Engine" that uses raw industrial aesthetics
 - [x] Social media links (Instagram, Facebook, TikTok)
 - [x] WhatsApp link (contact page only, no floating widget)
 - [x] Click-to-call (tel: links)
-- [ ] Spotify playlist embed
+- [x] Spotify playlist embed
 - [ ] Email notification service (Resend/SendGrid/Cloudflare Email Workers)
 
 #### 12. SEO Implementation
@@ -178,11 +165,11 @@ Build a high-performance "Conversion Engine" that uses raw industrial aesthetics
   - [x] LocalBusiness
   - [x] Organization
   - [x] OpeningHoursSpecification
-  - [ ] AggregateRating (reviews)
+  - [x] AggregateRating (reviews)
   - [x] FAQPage
-- [ ] XML sitemap
-- [ ] Robots.txt
-- [ ] Location pages for secondary cities
+- [x] XML sitemap
+- [x] Robots.txt
+- [x] Location pages for secondary cities
 
 #### 13. Performance Optimization
 - [x] Images in WebP format with fallbacks
@@ -223,7 +210,6 @@ Build a high-performance "Conversion Engine" that uses raw industrial aesthetics
 - [ ] Hero video (MP4, muted, loop, <5MB)
 - [x] Kickboxing photos (6 images)
 - [ ] Ladies-only section photos (placeholder for now)
-- [ ] Gym equipment photos (placeholder for now)
 
 #### 17. Design Polish
 - [x] Industrial aesthetic (hard shadows, 0px border radius)
