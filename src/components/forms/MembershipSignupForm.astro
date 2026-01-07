@@ -151,12 +151,12 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
 
 
     <!-- STEP 2: PERSONAL DETAILS -->
-    <div class="form-step max-w-7xl mx-auto px-4" data-step="2">
-        <h2 class="font-display text-2xl md:text-3xl mb-8 text-left uppercase tracking-wider">2. Jouw gegevens</h2>
-        
-        <div class="flex flex-col lg:flex-row gap-8">
+    <div class="form-step" data-step="2">
+        <div class="flex flex-col lg:flex-row gap-8 lg:overflow-visible lg:justify-between">
             <!-- Form Fields -->
-            <div class="flex-grow space-y-6 w-full max-w-3xl">
+            <div class="space-y-6 w-full lg:w-auto lg:flex-1 lg:max-w-3xl pt-24 lg:pt-0">
+                <h2 class="font-display text-2xl md:text-3xl mb-8 text-left uppercase tracking-wider">2. Jouw gegevens</h2>
+
                 <div>
                     <label for="full_name" class="block text-sm font-semibold mb-2">
                         Volledige naam <span class="text-primary">*</span>
@@ -208,7 +208,7 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
                         name="birthdate"
                         id="birthdate"
                         required
-                        class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors min-w-0 appearance-none"
+                        class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors min-w-0 date-input"
                     />
                     <p class="hidden text-red-500 text-sm mt-1" data-error-for="birthdate">Vul een geldige datum in.</p>
                 </div>
@@ -274,19 +274,19 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
             </div>
 
             <!-- RELOCATED ORDER SUMMARY -->
-            <div class="w-full lg:w-[380px] mt-8 lg:mt-0 h-full">
-                <div id="order-summary-tab" class="lg:sticky lg:top-24 opacity-0 hidden transition-opacity duration-300 z-30">
-                    <div class="bg-bg-secondary text-white shadow-xl rounded border border-white/10 overflow-hidden relative clip-path-ind">
+            <div class="w-screen lg:w-[380px] order-first lg:order-none -mt-24 md:-mt-32 lg:-mt-32 mb-6 lg:mb-0 -ml-4 md:-ml-6 lg:ml-0">
+                <div id="order-summary-tab" class="sticky top-20 md:top-24 lg:top-24 opacity-0 hidden transition-opacity duration-300 z-40">
+                    <div class="bg-bg-secondary text-white shadow-xl lg:rounded border-b lg:border-t-0 lg:border-x lg:border-b border-white/10 overflow-hidden relative lg:clip-path-ind">
                         <!-- Collapsed Header -->
-                        <button type="button" id="summary-toggle" class="w-full p-6 flex justify-between items-center hover:bg-white/5 transition-colors">
-                            <div class="text-left">
-                                <h3 class="font-display text-lg uppercase tracking-tight" id="float-name">Lidmaatschap</h3>
-                                <div class="flex items-baseline gap-1 mt-0.5">
-                                    <span class="font-display text-2xl text-primary" id="float-price">€-</span>
+                        <button type="button" id="summary-toggle" class="w-full p-4 lg:p-6 flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <div class="flex items-center gap-3 lg:gap-0 lg:flex-col lg:items-start">
+                                <h3 class="font-display text-base lg:text-lg uppercase tracking-tight" id="float-name">Lidmaatschap</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="font-display text-xl lg:text-2xl text-primary" id="float-price">€-</span>
                                     <span class="text-xs text-text-muted font-medium">/ maand</span>
                                 </div>
                             </div>
-                            <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-text-muted transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6 text-text-muted transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
@@ -294,7 +294,7 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
                         <!-- Expanded Details -->
                         <div id="summary-details" class="hidden border-t border-white/5 p-6 space-y-6">
                             <div>
-                                <h4 class="font-display text-base uppercase mb-3 text-primary">Bestel Overzicht</h4>
+                                <h4 class="font-display text-base uppercase mb-3 text-primary">Besteloverzicht</h4>
                                 <div class="border-t border-dotted border-white/20 pt-3">
                                     <div class="flex justify-between items-baseline mb-2">
                                         <span class="font-bold text-sm">Lidmaatschap kosten</span>
@@ -525,7 +525,7 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
             </div>
             <div>
                 <label class="block text-sm font-semibold mb-2">Geboortedatum</label>
-                <input type="date" id="drawer-birthdate" class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none min-w-0 appearance-none" />
+                <input type="date" id="drawer-birthdate" class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none min-w-0 date-input" />
             </div>
         </div>
 
@@ -563,6 +563,39 @@ function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
 
 <style>
 /* ... existing styles ... */
+
+/* DATE INPUT STYLING */
+.date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 1;
+    filter: invert(0.7);
+}
+
+.date-input::-webkit-date-and-time-value {
+    text-align: left;
+}
+
+/* ORDER SUMMARY STICKY FIX */
+#order-summary-tab {
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+/* Mobile: use fixed positioning to ensure it sticks */
+@media (max-width: 1023px) {
+    #order-summary-tab:not(.hidden) {
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        top: 5rem; /* 80px - matches header height */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #order-summary-tab:not(.hidden) {
+        top: 6rem; /* 96px - matches tablet header height */
+    }
+}
 
 /* CORE DRAWER STYLES */
 #edit-drawer {
