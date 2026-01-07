@@ -14,7 +14,6 @@ interface Props {
 const {
   name,
   price,
-  term,
   features,
   id,
   isHighlighted = false,
@@ -23,12 +22,15 @@ const {
   icons = []
 } = Astro.props;
 
-
-
-
+type IconConfig = {
+  path?: string;
+  viewBox?: string;
+  img?: string;
+  color: string;
+};
 
 // Better Icons (Using FontAwesome-like paths or simple custom ones)
-const iconsMap = {
+const iconsMap: Record<string, IconConfig> = {
   fitness: {
     // Multi-plate dumbbell matching user image (Handle + Inner Plate + Outer Plate)
     path: "M8.5 11h7v2h-7z M6 6.5c0-.83.67-1.5 1.5-1.5S9 5.67 9 6.5v11c0 .83-.67 1.5-1.5 1.5S6 18.33 6 17.5v-11z M15 6.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5v-11z M3 8h2v8H3z M19 8h2v8h-2z M1 10h1v4H1z M22 10h1v4h-1z",
@@ -68,17 +70,22 @@ const iconsMap = {
     
     <!-- Category Icons -->
     <div class="flex items-center gap-2">
-      {icons.map(icon => (
-        <div class={`flex items-center justify-center ${iconsMap[icon]?.color || 'text-primary'}`} title={icon}>
-           {iconsMap[icon]?.img ? (
-             <img src={iconsMap[icon].img} alt={icon} class="w-8 h-8 object-contain" />
-           ) : (
-             <svg class="w-8 h-8" fill="currentColor" viewBox={iconsMap[icon]?.viewBox || "0 0 24 24"}>
-               <path d={iconsMap[icon]?.path || ""} />
-             </svg>
-           )}
-        </div>
-      ))}
+      {icons.map(icon => {
+        const config = iconsMap[icon];
+        if (!config) return null;
+
+        return (
+          <div class={`flex items-center justify-center ${config.color || 'text-primary'}`} title={icon}>
+            {config.img ? (
+              <img src={config.img} alt={icon} class="w-8 h-8 object-contain" />
+            ) : (
+              <svg class="w-8 h-8" fill="currentColor" viewBox={config.viewBox || "0 0 24 24"}>
+                <path d={config.path || ""} />
+              </svg>
+            )}
+          </div>
+        );
+      })}
     </div>
   </div>
 

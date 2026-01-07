@@ -23,7 +23,7 @@ function formatButtonText(name: string) {
   return `KIES ${cleanName.toUpperCase()}`;
 }
 
-function getIcons(id: string) {
+function getIcons(id: string): ("fitness" | "kickboxing" | "ladies")[] {
   if (id === 'ultimate-fit') return ['fitness', 'kickboxing'];
   if (id.includes('ladies')) return ['ladies'];
   if (id.includes('kb')) return ['kickboxing'];
@@ -878,14 +878,12 @@ input[type="checkbox"]:focus {
         });
     });
     const steps = document.querySelectorAll('.form-step');
-    const stepBadges = document.querySelectorAll('.step-badge');
 
     // Drawer Elements
     const drawer = document.getElementById('edit-drawer');
     const drawerOverlay = document.getElementById('drawer-overlay');
     const drawerCloseBtn = document.getElementById('close-drawer');
     const drawerSaveBtn = document.getElementById('save-drawer');
-    const drawerContent = document.getElementById('drawer-content');
     
     // Portal Steps to Header
     const stepTemplate = document.getElementById('step-progress-template');
