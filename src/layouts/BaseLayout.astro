@@ -5,12 +5,15 @@ import MobileMenu from '@components/global/MobileMenu.astro';
 import Footer from '@components/global/Footer.astro';
 import SchemaMarkup from '@components/seo/SchemaMarkup.astro';
 
+import StickyBottomBar from '@components/global/StickyBottomBar.astro';
+
 interface Props {
   title: string;
   description: string;
   theme?: 'default' | 'ladies';
   schemaType?: 'homepage' | 'page';
   cityName?: string;
+  showStickyBar?: boolean;
 }
 
 const {
@@ -18,7 +21,8 @@ const {
   description,
   theme = 'default',
   schemaType = 'page',
-  cityName
+  cityName,
+  showStickyBar = true
 } = Astro.props;
 ---
 
@@ -54,5 +58,7 @@ const {
   </main>
 
   <Footer />
+  
+  {showStickyBar && <StickyBottomBar />}
 </body>
 </html>

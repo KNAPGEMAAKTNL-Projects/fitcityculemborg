@@ -19,7 +19,6 @@ export async function getStaticPaths() {
 }
 
 const { location } = Astro.props;
-const otherLocations = locations.filter(l => l.slug !== location.slug);
 
 // Combine global FAQs with local ones for this page
 const combinedFaqs = [...location.localFaqs, ...faqData.slice(0, 4)];
