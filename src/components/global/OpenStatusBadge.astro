@@ -5,19 +5,20 @@ const { text, isOpen } = getStatusText();
 ---
 
 <span
-  id="open-status-badge"
+  data-open-status-badge
   class:list={[
     'inline-flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase rounded-none',
     isOpen ? 'bg-success/20 text-success' : 'bg-text-muted/20 text-text-muted'
   ]}
 >
   <span
+    data-open-status-dot
     class:list={[
       'w-2 h-2 rounded-full',
       isOpen ? 'bg-success animate-pulse' : 'bg-text-muted'
     ]}
   ></span>
-  <span id="status-text">{text}</span>
+  <span data-open-status-text>{text}</span>
 </span>
 
 <script>
@@ -25,18 +26,20 @@ const { text, isOpen } = getStatusText();
   import { getStatusText } from '@utils/openStatus';
 
   function updateStatus() {
-    const badge = document.getElementById('open-status-badge');
-    const statusText = document.getElementById('status-text');
+    const badges = document.querySelectorAll('[data-open-status-badge]');
+    if (!badges.length) return;
 
-    if (badge && statusText) {
-      const { text, isOpen } = getStatusText();
-      statusText.textContent = text;
+    const { text, isOpen } = getStatusText();
+    badges.forEach((badge) => {
+      const statusText = badge.querySelector('[data-open-status-text]');
+      if (statusText) {
+        statusText.textContent = text;
+      }
 
-      // Update classes
+      const dot = badge.querySelector('[data-open-status-dot]');
       if (isOpen) {
         badge.classList.remove('bg-text-muted/20', 'text-text-muted');
         badge.classList.add('bg-success/20', 'text-success');
-        const dot = badge.querySelector('span:first-of-type');
         if (dot) {
           dot.classList.remove('bg-text-muted');
           dot.classList.add('bg-success', 'animate-pulse');
@@ -44,13 +47,12 @@ const { text, isOpen } = getStatusText();
       } else {
         badge.classList.remove('bg-success/20', 'text-success');
         badge.classList.add('bg-text-muted/20', 'text-text-muted');
-        const dot = badge.querySelector('span:first-of-type');
         if (dot) {
           dot.classList.remove('bg-success', 'animate-pulse');
           dot.classList.add('bg-text-muted');
         }
       }
-    }
+    });
   }
 
   // Update immediately on page load
