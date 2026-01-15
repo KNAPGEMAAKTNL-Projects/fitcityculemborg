@@ -1,6 +1,2 @@
-# Allow all crawlers
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://fitcityculemborg.nl/sitemap-index.xml
+Disallow: /
