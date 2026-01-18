@@ -9,12 +9,12 @@ import PhotoGallery from '@components/sections/PhotoGallery.astro';
 import { kickboxingSchedule } from '@data/pricing';
 
 const kickboxingImages = [
-  '/images/kickboxen-1.jpeg',
-  '/images/kickboxen-2.jpeg',
-  '/images/kickboxen-3.jpeg',
-  '/images/kickboxen-4.jpeg',
-  '/images/kickboxen-5.jpeg',
-  '/images/kickboxen-6.jpeg',
+  '/images/kickboxen-1.webp',
+  '/images/kickboxen-2.webp',
+  '/images/kickboxen-3.webp',
+  '/images/kickboxen-4.webp',
+  '/images/kickboxen-5.webp',
+  '/images/kickboxen-6.webp',
 ];
 ---
 
@@ -27,9 +27,14 @@ const kickboxingImages = [
     <!-- Background Image -->
     <div class="absolute inset-0">
       <img
-        src="/images/kickboxen-5.jpeg"
+        src="/images/kickboxen-5.webp"
         alt="Kickboxing training bij FitCity"
+        width={1600}
+        height={1200}
         class="w-full h-full object-cover kickboxing-hero-bg"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <!-- Dark overlay for text readability -->
       <div class="absolute inset-0 bg-black/60"></div>

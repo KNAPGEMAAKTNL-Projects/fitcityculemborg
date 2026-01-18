@@ -43,7 +43,7 @@ const iconsMap: Record<string, IconConfig> = {
     color: "text-[#FF2E93]"
   },
   kickboxing: {
-    img: "/icons/kickboxing.png",
+    img: "/icons/kickboxing.webp",
     color: "" // Image has own color
   }
 };
@@ -77,7 +77,7 @@ const iconsMap: Record<string, IconConfig> = {
         return (
           <div class={`flex items-center justify-center ${config.color || 'text-primary'}`} title={icon}>
             {config.img ? (
-              <img src={config.img} alt={icon} class="w-8 h-8 object-contain" />
+              <img src={config.img} alt={icon} class="w-8 h-8 object-contain" width={32} height={32} />
             ) : (
               <svg class="w-8 h-8" fill="currentColor" viewBox={config.viewBox || "0 0 24 24"}>
                 <path d={config.path || ""} />

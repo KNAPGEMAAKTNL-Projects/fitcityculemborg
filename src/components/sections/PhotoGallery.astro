@@ -4,7 +4,7 @@ interface Props {
   title?: string;
 }
 
-const { images, title = 'Foto\'s' } = Astro.props;
+const { images, title = "Foto's" } = Astro.props;
 ---
 
 <section class="py-16 md:py-24 bg-bg-secondary">
@@ -12,16 +12,25 @@ const { images, title = 'Foto\'s' } = Astro.props;
     <h2 class="font-display text-3xl md:text-5xl text-center mb-12">{title}</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {images.map((image, index) => (
-        <div class="relative overflow-hidden border-2 border-white/10 hover:border-primary transition-all duration-300 group">
-          <img
-            src={image}
-            alt={`Kickboxing training foto ${index + 1}`}
-            class="w-full h-64 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
-      ))}
+      {
+        images.map((image, index) => {
+          // Convert image paths to WebP if they are JPEGs
+          const webpImage = image.replace(/\.jpeg$/i, ".webp");
+          return (
+            <div class="relative overflow-hidden border-2 border-white/10 hover:border-primary transition-all duration-300 group aspect-square">
+              <img
+                src={webpImage}
+                alt={`Kickboxing training foto ${index + 1}`}
+                width={400}
+                height={400}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>
