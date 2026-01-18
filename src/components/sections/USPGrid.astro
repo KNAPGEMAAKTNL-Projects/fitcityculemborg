@@ -31,8 +31,10 @@ const { usps } = Astro.props;
       <div class="brand-logo-container w-full md:flex-1">
         <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
           <img
-            src="/images/nautilus-logo.png"
+            src="/images/nautilus-logo.webp"
             alt="Nautilus"
+            width={120}
+            height={64}
             class="w-full h-auto max-h-16 md:max-h-20 object-contain"
           />
         </div>
@@ -42,8 +44,10 @@ const { usps } = Astro.props;
       <div class="brand-logo-container w-full md:flex-1">
         <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
           <img
-            src="/images/technogym-logo.png"
+            src="/images/technogym-logo.webp"
             alt="Technogym"
+            width={127}
+            height={64}
             class="w-full h-auto max-h-16 md:max-h-20 object-contain"
           />
         </div>
@@ -53,8 +57,10 @@ const { usps } = Astro.props;
       <div class="brand-logo-container w-full md:flex-1">
         <div class="brand-logo bg-white border border-white/10 p-4 md:p-6 flex items-center justify-center h-24 md:h-32 transition-all duration-300 hover:border-primary">
           <img
-            src="/images/sportsart-logo.png"
+            src="/images/sportsart-logo.webp"
             alt="SportsArt"
+            width={110}
+            height={64}
             class="w-full h-auto max-h-16 md:max-h-20 object-contain"
           />
         </div>
@@ -64,9 +70,13 @@ const { usps } = Astro.props;
     <!-- Gym Photo -->
     <div class="mt-12 group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-primary/50">
       <img
-        src="/images/fitcity-members.jpeg"
+        src="/images/fitcity-members.webp"
         alt="FitCity Members posing in front of the gym"
+        width={1600}
+        height={1200}
         class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   </div>
