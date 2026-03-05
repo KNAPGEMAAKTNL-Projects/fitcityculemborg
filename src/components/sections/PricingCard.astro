@@ -51,20 +51,18 @@ const iconsMap: Record<string, IconConfig> = {
 
 <div
   class:list={[
-    'relative card-industrial p-6 md:p-8 flex flex-col h-full',
-    isHighlighted && theme === 'ladies' ? 'border-2 border-[#FF2E93]' :
-    isHighlighted && theme === 'kickboxing' ? 'border-2 border-[#FF5722]' :
-    isHighlighted ? 'border-2 border-primary' : ''
+    'relative card-industrial p-8 md:p-10 flex flex-col h-full',
+    isHighlighted && 'shadow-[var(--shadow-card-glow)]'
   ]}
 >
   {isHighlighted && (
-    <div class="absolute top-0 right-0 px-4 py-1 bg-primary text-black text-xs font-bold uppercase z-20">
+    <div class="absolute top-0 right-0 px-3 py-1 bg-primary text-black text-[11px] font-bold uppercase rounded-sm z-20">
       Beste deal
     </div>
   )}
 
   <div class="flex justify-between items-start mb-2">
-    <h3 class="font-display text-xl md:text-2xl max-w-[70%]">
+    <h3 class="font-semibold text-xl md:text-2xl max-w-[70%]">
       {name}
     </h3>
     
@@ -99,7 +97,7 @@ const iconsMap: Record<string, IconConfig> = {
     <p class="text-text-muted text-sm mt-1">{subtitle}</p>
   </div>
 
-  <ul class="space-y-3 mb-8 flex-grow">
+  <ul class="space-y-4 mb-8 flex-grow">
     {features.map((feature) => (
       <li class="flex items-start gap-3">
         <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">

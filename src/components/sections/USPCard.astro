@@ -15,8 +15,8 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<div class="card-industrial p-6 text-center">
-  <div class="flex justify-center mb-4 text-primary" set:html={iconMap[icon] || icon} />
-  <h3 class="font-display text-xl mb-3">{title}</h3>
-  <p class="text-text-muted text-sm">{description}</p>
+<div class="card-industrial p-8 text-center">
+  <div class="flex justify-center mb-5 text-primary" set:html={iconMap[icon] || icon} />
+  <h3 class="font-semibold text-xl mb-3">{title}</h3>
+  <p class="text-text-muted text-sm leading-relaxed">{description}</p>
 </div>
