@@ -31,7 +31,7 @@ const { accessKey } = Astro.props;
       name="name"
       id="name"
       required
-      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-sm focus:border-primary focus:outline-none transition-colors"
     />
     <p class="hidden text-red-500 text-sm mt-1" data-error-for="name">Dit veld is verplicht.</p>
   </div>
@@ -46,7 +46,7 @@ const { accessKey } = Astro.props;
       name="email"
       id="email"
       required
-      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-sm focus:border-primary focus:outline-none transition-colors"
     />
     <p class="hidden text-red-500 text-sm mt-1" data-error-for="email">Vul een geldig e-mailadres in.</p>
   </div>
@@ -60,7 +60,7 @@ const { accessKey } = Astro.props;
       type="tel"
       name="phone"
       id="phone"
-      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-sm focus:border-primary focus:outline-none transition-colors"
     />
   </div>
 
@@ -73,7 +73,7 @@ const { accessKey } = Astro.props;
       name="subject_type"
       id="subject-type"
       required
-      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none transition-colors cursor-pointer"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-sm focus:border-primary focus:outline-none transition-colors cursor-pointer"
     >
       <option value="">Selecteer een onderwerp...</option>
       <option value="Proefles aanvragen">Proefles aanvragen</option>
@@ -94,7 +94,7 @@ const { accessKey } = Astro.props;
       id="message"
       rows="5"
       required
-      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-none focus:border-primary focus:outline-none resize-none transition-colors"
+      class="w-full bg-bg-main border-2 border-text-muted/30 px-4 py-3 rounded-sm focus:border-primary focus:outline-none resize-none transition-colors"
     ></textarea>
      <p class="hidden text-red-500 text-sm mt-1" data-error-for="message">Vul een bericht in.</p>
   </div>
