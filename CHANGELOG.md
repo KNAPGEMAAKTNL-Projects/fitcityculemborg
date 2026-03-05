@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/compare/v1.0.0...v1.0.1) (2026-03-05)
+
+
+### Bug Fixes
+
+* add noindex meta tag to prevent demo site indexing 🐛 ([#17](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/17)) ([550f4db](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/commit/550f4db7e911b5a59a1065ccc3b2dc076a4310ff)), closes [#16](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/16)
+* **ci:** disable auto-merge for release-please PRs ([#6](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/6)) ([1fa3954](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/commit/1fa395486938c942690d5a73609ed01858633e5b)), closes [#5](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/5)
+* set trailing slashes to always for Cloudflare compatibility 🐛 ([#14](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/14)) ([b182c99](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/commit/b182c99bee2db7a938bce5d3d157d2413023c34e))
+
+
+### Performance Improvements
+
+* optimize media assets for improved performance ([#8](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/issues/8)) ([d8f904c](https://github.com/KNAPGEMAAKTNL-Projects/fitcityculemborg/commit/d8f904cafd831bc7422ebd3455404dab262fcab3))
+
 ## 1.0.0 (2026-01-15)
 
 
