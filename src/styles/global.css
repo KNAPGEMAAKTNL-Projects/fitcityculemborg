@@ -117,7 +117,7 @@
   }
 
   .card-industrial {
-    @apply bg-bg-secondary rounded-sm border-0 transition-shadow duration-200;
+    @apply bg-white/[0.03] backdrop-blur-sm rounded-sm border border-border-subtle transition-all duration-200;
   }
 
   .card-industrial:hover {
