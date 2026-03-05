@@ -33,7 +33,7 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content={description} />
-  <title>{title} | FitCity Culemborg</title>
+  <title>{title === 'Home' ? 'Sportschool Culemborg | FitCity' : `${title} | FitCity Culemborg`}</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
 
   <!-- Preconnect for fonts -->
@@ -41,7 +41,7 @@ const {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Open Graph -->
-  <meta property="og:title" content={`${title} | FitCity Culemborg`} />
+  <meta property="og:title" content={title === 'Home' ? 'Sportschool Culemborg | FitCity' : `${title} | FitCity Culemborg`} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="nl_NL" />

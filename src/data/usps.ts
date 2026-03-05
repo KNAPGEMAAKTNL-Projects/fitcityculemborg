@@ -10,24 +10,24 @@ export const uspData: USPData[] = [
     id: 'price-leader',
     icon: 'tag',
     title: 'Beste Prijs',
-    description: 'De goedkoopste sportschool van Culemborg. Ladies Only al vanaf €20,50 per maand.'
+    description: 'Fitness vanaf 24,50 per maand. Ladies Only vanaf 20,50. Nergens in Culemborg train je voordeliger.'
   },
   {
     id: 'ladies-only',
     icon: 'users',
     title: 'Ladies Only',
-    description: 'Eigen damesvloer beneden voor privacy en comfort tijdens het trainen.'
+    description: 'Een aparte trainingsvloer alleen voor vrouwen. Volledig uitgerust, volledige privacy.'
   },
   {
     id: 'no-fluff',
     icon: 'check',
     title: 'Geen Gedoe',
-    description: 'Altijd personeel aanwezig, gratis begeleiding, geen verborgen kosten.'
+    description: 'Personeel aanwezig tijdens alle openingstijden. Hulp nodig? Gewoon vragen.'
   },
   {
     id: 'raw-vibe',
     icon: 'dumbbell',
-    title: 'Raw Energy',
-    description: 'Industriële, high-energy vibe. Geen steriele medische sfeer.'
+    title: 'Echte Gym Sfeer',
+    description: 'Geen steriele witte muren. Rauw, energiek en gebouwd om in te trainen.'
   },
 ];
