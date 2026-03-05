@@ -42,7 +42,7 @@ const displayedCards = category === 'all'
   <!-- Duration Toggle (Only show if we have mixed content or meaningful choices) -->
   {category === 'all' && (
       <div class="flex justify-center mb-12">
-        <div class="pricing-toggle bg-bg-secondary p-1 rounded-full border border-white/10 relative inline-flex">
+        <div class="pricing-toggle bg-white/[0.03] backdrop-blur-sm p-1 rounded-full border border-border-subtle relative inline-flex">
           <div class="pricing-slider absolute top-1 bottom-1 left-1 bg-primary rounded-full transition-all duration-300 z-0"></div>
           <button class="pricing-btn active px-6 py-2 rounded-full text-sm font-bold text-bg-main relative z-10 transition-colors cursor-pointer" data-view="12m">Jaar</button>
           <button class="pricing-btn px-6 py-2 rounded-full text-sm font-bold text-text-muted relative z-10 transition-colors cursor-pointer" data-view="6m">Halfjaar</button>

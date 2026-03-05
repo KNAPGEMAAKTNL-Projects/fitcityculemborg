@@ -10,12 +10,12 @@ const { title, subtitle, align = 'center' } = Astro.props;
 const alignClass = align === 'center' ? 'text-center' : 'text-left';
 ---
 
-<div class={`mb-12 ${alignClass}`}>
-  <h2 class="text-4xl md:text-5xl font-display mb-4 tracking-tight">
+<div class={`mb-14 ${alignClass}`}>
+  <h2 class="text-3xl md:text-4xl font-display mb-4">
     {title}
   </h2>
   {subtitle && (
-    <p class="text-text-muted text-lg max-w-2xl mx-auto">
+    <p class="text-text-muted text-lg max-w-2xl mx-auto mt-3">
       {subtitle}
     </p>
   )}

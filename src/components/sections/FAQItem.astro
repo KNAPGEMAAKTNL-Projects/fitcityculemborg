@@ -7,11 +7,11 @@ interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<details class="group border-b border-white/10 py-4">
+<details class="group border-b border-border-subtle py-5">
   <summary class="flex justify-between items-center cursor-pointer list-none">
-    <h3 class="font-display text-lg pr-4">{question}</h3>
+    <h3 class="font-semibold text-lg pr-4">{question}</h3>
     <svg
-      class="w-5 h-5 text-primary transition-transform group-open:rotate-180"
+      class="w-5 h-5 text-primary transition-transform duration-200 group-open:rotate-180"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -19,7 +19,7 @@ const { question, answer } = Astro.props;
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
     </svg>
   </summary>
-  <div class="mt-4 text-text-muted">
+  <div class="mt-4 text-text-muted leading-relaxed">
     <p>{answer}</p>
   </div>
 </details>

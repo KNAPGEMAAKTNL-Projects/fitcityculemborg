@@ -7,8 +7,8 @@ const { text, isOpen } = getStatusText();
 <span
   data-open-status-badge
   class:list={[
-    'inline-flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase rounded-none',
-    isOpen ? 'bg-success/20 text-success' : 'bg-text-muted/20 text-text-muted'
+    'inline-flex items-center gap-2 px-3 py-1.5 text-xs font-bold uppercase rounded-full backdrop-blur-sm',
+    isOpen ? 'bg-success/10 text-success border border-success/20' : 'bg-text-muted/10 text-text-muted border border-text-muted/20'
   ]}
 >
   <span
@@ -38,15 +38,15 @@ const { text, isOpen } = getStatusText();
 
       const dot = badge.querySelector('[data-open-status-dot]');
       if (isOpen) {
-        badge.classList.remove('bg-text-muted/20', 'text-text-muted');
-        badge.classList.add('bg-success/20', 'text-success');
+        badge.classList.remove('bg-text-muted/10', 'text-text-muted', 'border-text-muted/20');
+        badge.classList.add('bg-success/10', 'text-success', 'border-success/20');
         if (dot) {
           dot.classList.remove('bg-text-muted');
           dot.classList.add('bg-success', 'animate-pulse');
         }
       } else {
-        badge.classList.remove('bg-success/20', 'text-success');
-        badge.classList.add('bg-text-muted/20', 'text-text-muted');
+        badge.classList.remove('bg-success/10', 'text-success', 'border-success/20');
+        badge.classList.add('bg-text-muted/10', 'text-text-muted', 'border-text-muted/20');
         if (dot) {
           dot.classList.remove('bg-success', 'animate-pulse');
           dot.classList.add('bg-text-muted');

@@ -7,24 +7,26 @@
 /* Theme configuration */
 @theme {
   /* Colors - Core Palette */
-  --color-bg-main: #121212;
-  --color-bg-secondary: #1E1E1E;
+  --color-bg-main: #141414;
+  --color-bg-secondary: #1C1C1C;
   --color-primary: #FFE303;
-  --color-primary-hover: #D4BD00;
+  --color-primary-hover: #E6CC00;
   --color-ladies-accent: #FF2E93;
   --color-ladies-bg: #1A0F16;
   --color-text-main: #FFFFFF;
-  --color-text-muted: #A3A3A3;
+  --color-text-muted: #9A9A9A;
   --color-success: #00E676;
+  --color-border-subtle: #2A2A2A;
 
   /* Typography */
   --font-display: "Oswald", sans-serif;
   --font-body: "Inter", sans-serif;
 
   /* Shadows - Industrial Hard Shadows */
-  --shadow-card-hover: 6px 6px 0px 0px var(--color-primary);
-  --shadow-button: 4px 4px 0px 0px #000000;
-  --shadow-card-hover-ladies: 6px 6px 0px 0px var(--color-ladies-accent);
+  --shadow-card-hover: 0 4px 20px rgba(255, 227, 3, 0.08);
+  --shadow-button: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover-ladies: 0 4px 20px rgba(255, 46, 147, 0.08);
+  --shadow-card-glow: 0 0 20px rgba(255, 227, 3, 0.12);
 
   /* Spacing scale */
   --spacing-section: 5rem;
@@ -32,6 +34,7 @@
 
   /* Reset border radius */
   --radius-*: initial;
+  --radius-sm: 0.25rem;
 }
 
 /* Base styles */
@@ -44,18 +47,30 @@
     font-family: var(--font-body);
     background-color: var(--color-bg-main);
     color: var(--color-text-main);
+    line-height: 1.7;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1 {
     font-family: var(--font-display);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0;
   }
 }
 
@@ -64,14 +79,16 @@
   --color-primary: #FF2E93;
   --color-primary-hover: #D4247A;
   --color-bg-main: #1A0F16;
-  --shadow-card-hover: 6px 6px 0px 0px #FF2E93;
+  --shadow-card-hover: 0 4px 20px rgba(255, 46, 147, 0.08);
+  --shadow-card-glow: 0 0 20px rgba(255, 46, 147, 0.12);
 }
 
 /* Theme variants for Kickboxing */
 [data-theme="kickboxing"] {
   --color-primary: #FF5722;
   --color-primary-hover: #E64A19;
-  --shadow-card-hover: 6px 6px 0px 0px #FF5722;
+  --shadow-card-hover: 0 4px 20px rgba(255, 87, 34, 0.08);
+  --shadow-card-glow: 0 0 20px rgba(255, 87, 34, 0.12);
 }
 
 /* Component utilities */
@@ -85,8 +102,8 @@
 
   .btn-primary:hover {
     @apply bg-primary-hover;
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   .btn-ghost {
@@ -100,7 +117,7 @@
   }
 
   .card-industrial {
-    @apply bg-bg-secondary rounded-none border-0 transition-shadow duration-200;
+    @apply bg-white/[0.03] backdrop-blur-sm rounded-sm border border-border-subtle transition-all duration-200;
   }
 
   .card-industrial:hover {
