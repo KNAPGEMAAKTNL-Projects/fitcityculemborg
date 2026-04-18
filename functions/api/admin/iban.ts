@@ -1,25 +1,37 @@
 import type { Env } from '../_shared/types';
 import { decrypt } from '../_shared/encryption';
+import { requireAccessAuth, unauthorizedResponse, forbiddenResponse, checkCsrf } from './_auth';
 
-const CORS_HEADERS = {
+const SECURE_HEADERS = {
   'Content-Type': 'application/json',
+  'Cache-Control': 'no-store',
+  'X-Content-Type-Options': 'nosniff',
 };
 
 function jsonResponse(body: Record<string, unknown>, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: CORS_HEADERS,
+    headers: SECURE_HEADERS,
   });
 }
 
 /**
  * POST /api/admin/iban/
  * Decrypts a single IBAN for viewing in the admin dashboard.
- * Protected by Cloudflare Zero Trust — no additional auth needed.
+ * Protected by Cloudflare Zero Trust + server-side header verification.
  */
 export const onRequest: PagesFunction<Env> = async (context) => {
   if (context.request.method !== 'POST') {
     return jsonResponse({ error: 'Method not allowed' }, 405);
+  }
+
+  const authedEmail = await requireAccessAuth(context.request);
+  if (!authedEmail) {
+    return unauthorizedResponse();
+  }
+
+  if (!checkCsrf(context.request)) {
+    return forbiddenResponse();
   }
 
   try {

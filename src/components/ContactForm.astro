@@ -2,7 +2,7 @@
 // Contact form with fields from DESIGN.md section 11
 // Turnstile placeholder — add cf-turnstile div when deploying
 ---
-<form class="contact-form" id="contact-form" action="/api/contact/" method="POST" novalidate>
+<form class="contact-form" id="contact-form-el" action="/api/contact/" method="POST" novalidate>
   <div class="form-field">
     <label for="naam">Je naam</label>
     <input type="text" id="naam" name="naam" required autocomplete="name" maxlength="100" />
@@ -239,7 +239,8 @@
     container.innerHTML = '';
     turnstile.render(container, {
       sitekey: TURNSTILE_SITE_KEY,
-      theme: 'dark',
+      size: 'invisible',
+      appearance: 'interaction-only',
       callback: (token: string) => { contactTurnstileToken = token; },
       'expired-callback': () => { contactTurnstileToken = ''; },
     });
@@ -256,7 +257,7 @@
   // Re-render after view transitions
   document.addEventListener('astro:after-swap', renderContactTurnstile);
 
-  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const form = document.getElementById('contact-form-el') as HTMLFormElement;
   const submitBtn = document.getElementById('form-submit');
   const successMsg = document.getElementById('form-success');
   const errorMsg = document.getElementById('form-error');

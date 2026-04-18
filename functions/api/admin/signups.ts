@@ -1,7 +1,10 @@
 import type { Env } from '../_shared/types';
+import { requireAccessAuth, unauthorizedResponse, forbiddenResponse, checkCsrf } from './_auth';
 
-const CORS_HEADERS = {
+const SECURE_HEADERS = {
   'Content-Type': 'application/json',
+  'Cache-Control': 'no-store',
+  'X-Content-Type-Options': 'nosniff',
 };
 
 const VALID_STATUSES = ['new', 'contacted', 'activated', 'cancelled'] as const;
@@ -9,7 +12,7 @@ const VALID_STATUSES = ['new', 'contacted', 'activated', 'cancelled'] as const;
 function jsonResponse(body: Record<string, unknown>, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: CORS_HEADERS,
+    headers: SECURE_HEADERS,
   });
 }
 
@@ -141,9 +144,35 @@ async function handleDelete(context: EventContext<Env, string, unknown>): Promis
       return jsonResponse({ error: 'Inschrijving niet gevonden.' }, 404);
     }
 
-    await context.env.DB.prepare('DELETE FROM signups WHERE id = ?')
-      .bind(body.id)
-      .run();
+    const insertSql = `INSERT INTO signups_archive (
+      original_id, plan_slug, plan_name, plan_price, plan_duration,
+      full_name, email, phone, date_of_birth,
+      street, house_number, postcode, city,
+      iban_encrypted, iban_masked, account_holder,
+      privacy_consent_at, sepa_consent_at, terms_consent_at,
+      status, notes, ip_hash, created_at, updated_at,
+      first_name, last_name, house_number_addition, marketing_consent_at,
+      archived_reason
+    ) SELECT
+      id, plan_slug, plan_name, plan_price, plan_duration,
+      full_name, email, phone, date_of_birth,
+      street, house_number, postcode, city,
+      iban_encrypted, iban_masked, account_holder,
+      privacy_consent_at, sepa_consent_at, terms_consent_at,
+      status, notes, ip_hash, created_at, updated_at,
+      first_name, last_name, house_number_addition, marketing_consent_at,
+      'admin_delete'
+    FROM signups WHERE id = ?`;
+
+    const results = await context.env.DB.batch([
+      context.env.DB.prepare(insertSql).bind(body.id),
+      context.env.DB.prepare('DELETE FROM signups WHERE id = ?').bind(body.id),
+    ]);
+
+    if (results[0].meta.changes !== 1 || results[1].meta.changes !== 1) {
+      console.error('Archive move anomaly', { id: body.id, results });
+      return jsonResponse({ error: 'Serverfout bij archiveren van inschrijving.' }, 500);
+    }
 
     return jsonResponse({ success: true });
   } catch (err) {
@@ -153,6 +182,15 @@ async function handleDelete(context: EventContext<Env, string, unknown>): Promis
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
+  const authedEmail = await requireAccessAuth(context.request);
+  if (!authedEmail) {
+    return unauthorizedResponse();
+  }
+
+  if (!checkCsrf(context.request)) {
+    return forbiddenResponse();
+  }
+
   if (context.request.method === 'GET') {
     return handleGet(context);
   }
@@ -167,6 +205,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   return new Response(JSON.stringify({ error: 'Method not allowed' }), {
     status: 405,
-    headers: CORS_HEADERS,
+    headers: SECURE_HEADERS,
   });
 };
